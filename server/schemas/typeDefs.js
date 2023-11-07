@@ -4,7 +4,7 @@ const typeDefs = `
     name: String
     email: String
     password: String
-    skills: [String]!
+    savedLaunches: [Launch]
   }
 
   type Launch {

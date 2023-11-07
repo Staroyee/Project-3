@@ -1,5 +1,5 @@
-const { Profile } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { Profile } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -20,7 +20,6 @@ const resolvers = {
   },
 
   Mutation: {
-    
     addProfile: async (parent, { name, email, password }) => {
       const profile = await Profile.create({ name, email, password });
       const token = signToken(profile);
@@ -46,8 +45,32 @@ const resolvers = {
 
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
-      if (context.user) {
+      if (context.profile) {
         return Profile.findOneAndDelete({ _id: context.user._id });
+      }
+      throw AuthenticationError;
+    },
+
+    saveLaunch: async (_, { Launch }, context) => {
+      if (context.profile) {
+        const updatedProfile = await Profile.findByIdAndUpdate(
+          { _id: context.profile._id },
+          { $push: { savedLaunches: Launch } },
+          { new: true }
+        );
+        return updatedProfile;
+      }
+      throw AuthenticationError;
+    },
+
+    removeLaunch: async (_, { launchId }, context) => {
+      if (context.profile) {
+        const updatedProfile = await Profile.findByIdAndUpdate(
+          { _id: context.profile._id },
+          { $pull: { savedLaunches: { launchId } } },
+          { new: true }
+        );
+        return updatedProfile;
       }
       throw AuthenticationError;
     },
