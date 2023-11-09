@@ -1,13 +1,13 @@
-const { GraphQLError } = require('graphql');
-const jwt = require('jsonwebtoken');
+const { GraphQLError } = require("graphql");
+const jwt = require("jsonwebtoken");
 
-const secret = 'mysecretssshhhhhhh';
-const expiration = '2h';
+const secret = "mysecretssshhhhhhh";
+const expiration = "2h";
 
 module.exports = {
-  AuthenticationError: new GraphQLError('Could not authenticate user.', {
+  AuthenticationError: new GraphQLError("Could not authenticate user.", {
     extensions: {
-      code: 'UNAUTHENTICATED',
+      code: "UNAUTHENTICATED",
     },
   }),
   authMiddleware: function ({ req }) {
@@ -16,7 +16,7 @@ module.exports = {
 
     // We split the token string into an array and return actual token
     if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
+      token = token.split(" ").pop().trim();
     }
 
     if (!token) {
@@ -26,9 +26,9 @@ module.exports = {
     // if token can be verified, add the decoded user's data to the request so it can be accessed in the resolver
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
+      req.profile = data;
     } catch {
-      console.log('Invalid token');
+      console.log("Invalid token");
     }
 
     // return the request object so it can be passed to the resolver as `context`
@@ -36,6 +36,10 @@ module.exports = {
   },
   signToken: function ({ email, name, _id }) {
     const payload = { email, name, _id };
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    const token2 = jwt.sign({ data: payload }, secret, {
+      expiresIn: expiration,
+    });
+    console.log("token", token2);
+    return token2;
   },
 };

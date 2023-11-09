@@ -7,12 +7,12 @@ const resolvers = {
       return Profile.find();
     },
 
-    profile: async (parent, { profileId }) => {
+    profile: async (_, { profileId }) => {
       return Profile.findOne({ _id: profileId });
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    me: async (parent, args, context) => {
-      if (context.user) {
+    me: async (_, __, context) => {
+      if (context.profile) {
         return Profile.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
@@ -20,13 +20,13 @@ const resolvers = {
   },
 
   Mutation: {
-    addProfile: async (parent, { name, email, password }) => {
+    addProfile: async (_, { name, email, password }) => {
       const profile = await Profile.create({ name, email, password });
       const token = signToken(profile);
 
       return { token, profile };
     },
-    login: async (parent, { email, password }) => {
+    login: async (_, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
       if (!profile) {
@@ -44,7 +44,7 @@ const resolvers = {
     },
 
     // Set up mutation so a logged in user can only remove their profile and no one else's
-    removeProfile: async (parent, args, context) => {
+    removeProfile: async (_, __, context) => {
       if (context.profile) {
         return Profile.findOneAndDelete({ _id: context.user._id });
       }
