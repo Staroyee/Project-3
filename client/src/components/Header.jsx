@@ -1,7 +1,7 @@
 // Import necessary components and modules.
 import { useState } from "react";
 import { PropTypes } from "prop-types";
-import { Navbar, Nav, Image, Col } from "react-bootstrap";
+import { Navbar, Nav, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // Import the logo image.
@@ -11,7 +11,7 @@ const styles = {
   navStyle: {
     marginBottom: "20px",
     padding: "0rem 2rem",
-    justifyContent: "center",
+    textAlign: "center",
     backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
   logoStyle: {
@@ -35,10 +35,11 @@ function Header({ links }) {
   // Function to toggle the collapsed state of the menu.
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
+    console.log("Collapsed state:", collapsed);
   };
 
   return (
-    <Col>
+    <>
       <Navbar style={styles.navStyle} variant="dark" expand="lg">
         <a href="http://localhost:3000/" className="href">
           <Image
@@ -47,9 +48,6 @@ function Header({ links }) {
             roundedCircle
           />
         </a>
-        <Navbar.Brand style={styles.titleStyle}>
-          Staroye Web Development
-        </Navbar.Brand>
         <Navbar.Toggle onClick={toggleCollapsed} style={styles.dropdownStyle} />
         <Navbar.Collapse
           className={`justify-content-${collapsed ? "center" : "end"}`}
@@ -66,12 +64,12 @@ function Header({ links }) {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </Col>
+    </>
   );
 }
 
 Header.propTypes = {
-  links: PropTypes.string.isRequired,
+  links: PropTypes.array.isRequired,
 };
 
 export default Header;

@@ -3,20 +3,21 @@ import { Container, Row, Col } from "react-bootstrap";
 const styles = {
     textStyle: {
         color: 'white',
+        textAlign: 'left',
     },
-    containerStyle: {
-        display: 'flex',
-    }
 }
 
 
 function Home() {
     return (
         <>
-        <Container style={styles.textStyle}>
+        <Container>
             <Row>
-                <Col xs={6} style={styles.textStyle}>Hey</Col>
-                <Col xs={6} style={styles.textStyle}>Hey</Col>
+                <Col xs={6} style={styles.textStyle}>
+                    <h1>SKYWARD</h1>
+                    <h3>Look to the sky and see the satellites above, track their movements and get notified when they are visible!</h3>
+                </Col>
+                <Col xs={6} style={styles.textStyle}></Col>
             </Row>
         </Container>
         </>

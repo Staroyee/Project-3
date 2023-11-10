@@ -17,11 +17,11 @@ const BackgroundContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  min-height: 100vh; // Set min-height to at least 100% of the viewport height
+  min-height: 100vh;
 `;
 
 const ContentContainer = styled.div`
-  flex: 1; // Use flex to push the Footer to the bottom
+  flex-grow: 1;
 `;
 
 function App() {
@@ -55,3 +55,4 @@ function App() {
 }
 
 export default App;
+
