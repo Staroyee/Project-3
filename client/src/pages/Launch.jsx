@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 function Launch() {
   const [launchData, setLaunchData] = useState([]);
 
   useEffect(() => {
     getLaunchData();
-    console.log(launchData)
+    console.log(launchData);
   }, []);
 
   const getLaunchData = () => {
@@ -25,7 +25,21 @@ function Launch() {
   return (
     <Container>
       <Row>
-        <Col>{/* Content goes here */}</Col>
+        <Col>
+        
+          <Card>
+            <Card.Img></Card.Img>
+            <Card.Body>
+              <Card.Title></Card.Title>
+              <Card.Text></Card.Text>
+              <Card.Text></Card.Text>
+              <Card.Text></Card.Text>
+              <Row>
+                <Button></Button>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );

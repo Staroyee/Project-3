@@ -5,17 +5,17 @@ import { Navbar, Nav, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // Import the logo image.
+import logo from "../assets/images/rocketIcon.png"
 
 // Define custom styles for the header.
 const styles = {
   navStyle: {
     marginBottom: "20px",
-    padding: "0rem 2rem",
+    padding: "1rem 1rem",
     textAlign: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
   logoStyle: {
-    width: 120,
+    
     margin: "10px",
   },
   titleStyle: {
@@ -44,7 +44,8 @@ function Header({ links }) {
         <a href="http://localhost:3000/" className="href">
           <Image
             style={styles.logoStyle}
-            alt="Avatar"
+            alt="Skyward Logo"
+            src={logo}
             roundedCircle
           />
         </a>
