@@ -6,9 +6,9 @@ import AddIcon from '@mui/icons-material/Add';
 const styles = {
   cardStyles: {
     padding: "12px 0px",
-    backgroundColor: "#FF4D00",
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     margin: "24px",
-    color: "black",
+    color: "white",
   },
   imgStyles: {
     width: "100%",

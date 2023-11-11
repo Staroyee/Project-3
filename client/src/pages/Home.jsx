@@ -2,13 +2,25 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const styles = {
   textStyle: {
-    color: 'white',
-    textAlign: 'left',
+    fontSize: '50px',
+  },
+  infoStyle: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    boxShadow: '-15px 15px 15px rgba(0, 0, 0, 0.5)',
+    borderTop: 'solid 1px orange',
+    borderRight: 'solid 1px orange',
+    borderRadius: '20px',
+    padding: '10px',
   },
   containerStyle: {
     display: 'flex',
     alignItems: 'center',
-    minHeight: '75vh', // Ensure the container takes the full height of the viewport
+    minHeight: '80vh', // Ensure the container takes the full height of the viewport
+  },
+  colStyle: {
+    color: 'white',
+    textAlign: 'left',
+    padding: '10px',
   },
 }
 
@@ -17,11 +29,11 @@ function Home() {
     <>
       <Container style={styles.containerStyle}>
         <Row>
-          <Col xs={6} style={styles.textStyle}>
-            <h1>SKYWARD</h1>
-            <h3>Look to the sky and see the satellites above, track their movements and get notified when they are visible!</h3>
+          <Col xs={6} style={styles.colStyle}>
+            <h1 style={styles.textStyle}>SKYWARD</h1>
+            <h3 style={styles.infoStyle}>Look to the sky and view the galaxy, track space launches, browse rocket information and more!</h3>
           </Col>
-          <Col xs={6} style={styles.textStyle}></Col>
+          <Col xs={6}></Col>
         </Row>
       </Container>
     </>
@@ -29,3 +41,4 @@ function Home() {
 }
 
 export default Home;
+

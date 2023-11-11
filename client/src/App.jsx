@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import styled from "styled-components";
+import background from "./assets/images/background.svg"
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -14,6 +15,9 @@ import Footer from "./components/Footer";
 
 const BackgroundContainer = styled.div`
   background-color: #120401;
+  background-image: url(${background});
+  background: cover;
+  background-position: cover;
   display: flex;
   flex-direction: column;
   text-align: center;
