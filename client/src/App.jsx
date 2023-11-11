@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import Launch from "./pages/Launch";
-
+import { Outlet } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import styled from "styled-components";
 import "./App.css";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const BackgroundContainer = styled.div`
   background-color: #120401;
@@ -24,35 +24,39 @@ const ContentContainer = styled.div`
   flex-grow: 1;
 `;
 
-function App() {
-  const navLinks = [
-    { to: "/home", label: "Home" },
-    { to: "/login", label: "Login" },
-    { to: "/signup", label: "Signup" },
-    { to: "/profile", label: "Profile" },
-    { to: "/launch", label: "Launch" },
-  ];
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+function App() {
   return (
     <>
-      <BrowserRouter>
+      <ApolloProvider client={client}>
         <BackgroundContainer>
-          <Header links={navLinks} />
+          <Navbar />
           <ContentContainer>
-            <Routes>
-              <Route path="/*" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/launch" element={<Launch />} />
-            </Routes>
+            <Outlet />
           </ContentContainer>
           <Footer />
         </BackgroundContainer>
-      </BrowserRouter>
+      </ApolloProvider>
     </>
   );
 }
 
 export default App;
-

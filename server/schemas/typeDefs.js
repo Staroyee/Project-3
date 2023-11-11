@@ -1,7 +1,7 @@
 const typeDefs = `
   type Profile {
     _id: ID
-    name: String
+    username: String
     email: String
     password: String
     savedLaunches: [Launch]
@@ -41,7 +41,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!): Auth
+    addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     removeProfile: Profile
     saveLaunch(Launch: LaunchInput): Profile

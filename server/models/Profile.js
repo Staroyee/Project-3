@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const launchSchema = require('./Launch')
 
 const profileSchema = new Schema({
-  name: {
+  username: {
     type: String,
     required: true,
     unique: true,
