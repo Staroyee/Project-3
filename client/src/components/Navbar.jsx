@@ -32,12 +32,18 @@ function Navbar() {
               </Link>
             </li>
             <li onClick={removeActive}>
+              <Link to="/saved-launches" className={`navLink`}>
+                Saved Launches
+              </Link>
+            </li>
+            <li onClick={removeActive}>
               <Link to="/profile" className={`navLink`}>
                 Profile
               </Link>
             </li>
+
             <li>
-              <a href="/" onClick={() => Auth.logout()}>
+              <a href="/" onClick={() => Auth.logout()} className="navLink">
                 Logout
               </a>
             </li>

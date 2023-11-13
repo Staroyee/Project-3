@@ -5,11 +5,7 @@ const styles = {
     fontSize: '50px',
   },
   infoStyle: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    boxShadow: '-15px 15px 15px rgba(0, 0, 0, 0.5)',
-    borderTop: 'solid 1px orange',
-    borderRight: 'solid 1px orange',
-    borderRadius: '20px',
+    borderRadius: '0px',
     padding: '10px',
   },
   containerStyle: {

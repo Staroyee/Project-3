@@ -4,16 +4,16 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const resolvers = {
   Query: {
     profiles: async () => {
-      return Profile.find();
+      return Profile.find().select("-__v -password");
     },
 
     profile: async (_, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+      return Profile.findOne({ _id: profileId }).select("-__v -password");
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (_, __, context) => {
       if (context.profile) {
-        return Profile.findOne({ _id: context.profile._id });
+        return Profile.findOne({ _id: context.profile._id }).select("-__v -password");
       }
       throw AuthenticationError;
     },
@@ -51,11 +51,11 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    saveLaunch: async (_, { Launch }, context) => {
+    saveLaunch: async (_, { launch }, context) => {
       if (context.profile) {
         const updatedProfile = await Profile.findByIdAndUpdate(
           { _id: context.profile._id },
-          { $push: { savedLaunches: Launch } },
+          { $addToSet: { savedLaunches: launch } },
           { new: true }
         );
         return updatedProfile;

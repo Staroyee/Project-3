@@ -8,6 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import styled from "styled-components";
 import background from "./assets/images/background.svg"
+import "./assets/css/LaunchCards.css"
 import "./App.css";
 
 import Navbar from "./components/Navbar";

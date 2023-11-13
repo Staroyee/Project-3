@@ -44,7 +44,7 @@ const typeDefs = `
     addProfile(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     removeProfile: Profile
-    saveLaunch(Launch: LaunchInput): Profile
+    saveLaunch(launch: LaunchInput): Profile
     removeLaunch(launchId: ID!): Profile
   }
 `;

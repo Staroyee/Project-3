@@ -23,6 +23,17 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+      email
+      savedLaunches {
+        launchId
+        name
+        status
+        provider
+        location
+        date
+        image
+        webcastLive
+      }
     }
   }
 `;
