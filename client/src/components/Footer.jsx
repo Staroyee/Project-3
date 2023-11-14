@@ -9,8 +9,7 @@ const styles = {
   footerStyle: {
     display: 'flex',
     justifyContent: 'center',
-    borderTop: '1px solid white',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    color: '#ff851d',
   },
   footerbrandStyle: {
     margin: '10px 30px',
@@ -24,12 +23,12 @@ function Footer() {
       <Navbar style={styles.footerStyle} variant='dark'>
         <Container>
           {/* Create links to social media profiles with respective icons. */}
-          <Navbar.Brand style={styles.footerbrandStyle} href="https://github.com/Staroyee" target='_blank'>
+          <h4 style={styles.footerbrandStyle} href="https://github.com/Staroyee" target='_blank'>
             GitHub
-          </Navbar.Brand>
-          <Navbar.Brand style={styles.footerbrandStyle} href="https://thespacedevs.com/llapi" target='_blank'>
+          </h4>
+          <h4 style={styles.footerbrandStyle} href="https://thespacedevs.com/llapi" target='_blank'>
             Sources
-          </Navbar.Brand>
+          </h4>
         </Container>
       </Navbar>
     </>

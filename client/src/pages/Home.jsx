@@ -2,11 +2,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const styles = {
   textStyle: {
-    fontSize: '50px',
+    padding: '20px 0px',
+    fontSize: '70px',
   },
   infoStyle: {
-    borderRadius: '0px',
-    padding: '10px',
+    paddingTop: '10px',
+    color: 'white',
   },
   containerStyle: {
     display: 'flex',
@@ -14,9 +15,9 @@ const styles = {
     minHeight: '80vh', // Ensure the container takes the full height of the viewport
   },
   colStyle: {
-    color: 'white',
+    color: 'rgb(57, 62, 65)',
     textAlign: 'left',
-    padding: '10px',
+    paddingRight: '100px',
   },
 }
 

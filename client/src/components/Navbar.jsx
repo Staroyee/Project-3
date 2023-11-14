@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
-import "../assets/css/Navbar.modules.css"; // Remove ?inline
+import "../assets/css/Navbar.modules.css"; 
 
 function Navbar() {
   // adding the states
@@ -78,7 +78,7 @@ function Navbar() {
   return (
     <div className="App">
       <header className="App-header">
-        <nav className={`navbar`}>
+        <nav className={`navBar`}>
           {/* logo */}
           <Link to="/" className={`logo`}>
             SKYWARD{" "}

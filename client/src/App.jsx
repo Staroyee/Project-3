@@ -6,9 +6,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+
 import styled from "styled-components";
-import background from "./assets/images/background.svg"
-import "./assets/css/LaunchCards.css"
+import background from "./assets/images/background.jpg";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -17,9 +17,9 @@ import Footer from "./components/Footer";
 const BackgroundContainer = styled.div`
   background-color: #120401;
   background-image: url(${background});
-  background: cover;
-  background-position: cover;
+  background-size: cover;
   display: flex;
+  background-repeat: no-repeat;
   flex-direction: column;
   text-align: center;
   min-height: 100vh;
@@ -49,6 +49,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  
   return (
     <>
       <ApolloProvider client={client}>

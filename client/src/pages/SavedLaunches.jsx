@@ -1,9 +1,13 @@
 import { useQuery, useMutation } from "@apollo/client";
+import CountdownTimer from "../components/Countdown";
+import DateParser from "../components/DateParser";
+
 import { motion } from "framer-motion";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
+import "../assets/css/LaunchCards.css";
 
 import { QUERY_ME } from "../utils/queries";
 import { REMOVE_LAUNCH } from "../utils/mutations";
@@ -55,21 +59,26 @@ function SavedLaunches() {
                 <Card className="card">
                   <Container>
                     <Row>
-                      <Col>
+                      <Col md={12} lg={4}>
                         <Card.Img
                           className="cardImg"
                           variant="top"
                           src={launch.image}
                         />
                       </Col>
-                      <Col>
+                      <Col md={12} lg={8}>
                         <Card.Body>
                           <Card.Title className="cardTitle">
                             {launch.name}
                           </Card.Title>
                           <Card.Text>{launch.provider}</Card.Text>
                           <Card.Text>{launch.status}</Card.Text>
-                          <Card.Text>{launch.date}</Card.Text>
+                          <Card.Text>
+                            <DateParser dateString={launch.date} />
+                          </Card.Text>
+                          <CountdownTimer
+                            targetDate={new Date(launch.date).getTime()}
+                          />
                           <Row className="buttonContainer">
                             <button className="button">WATCH LIVE</button>
                           </Row>

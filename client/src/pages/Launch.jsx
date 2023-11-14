@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
+
+import CountdownTimer from "../components/Countdown";
+import DateParser from "../components/DateParser.jsx";
+
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
+import "../assets/css/LaunchCards.css";
 
 import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
@@ -83,46 +88,59 @@ function Launch() {
                   <Card className="card">
                     <Container>
                       <Row>
-                        <Col>
+                        <Col md={12} lg={4}>
                           <Card.Img
                             className="cardImg"
-                            variant="top"
                             src={launch.image}
                           ></Card.Img>
                         </Col>
-                        <Col>
-                          <Card.Body>
-                            <Card.Title className="cardTitle">
-                              {launch.name}
-                            </Card.Title>
-                            <Card.Text>
-                              {launch.launch_service_provider.name}
-                            </Card.Text>
-                            <Card.Text>{launch.status.abbrev}</Card.Text>
-                            <Card.Text>{launch.window_start}</Card.Text>
-                            <Row className="buttonContainer">
-                              <button className="button">
-                                {launch.webcast_live ? (
-                                  <>WATCH LIVE</>
-                                ) : (
-                                  "NO LIVESTREAM"
-                                )}
-                              </button>
-                            </Row>
-                            <Tooltip title="Info" arrow placement="left">
-                              <button className="button infoButton">
-                                <InfoIcon />
-                              </button>
-                            </Tooltip>
-                            <Tooltip title="Save" arrow placement="right">
-                              <button
-                                onClick={() => handleSaveLaunch(launch.id)}
-                                className="button removeButton"
-                              >
-                                <AddIcon />
-                              </button>
-                            </Tooltip>
-                          </Card.Body>
+
+                        <Col md={12} lg={8}>
+                          <Row>
+                            <Col>
+                              <Card.Body>
+                                <Card.Title className="cardTitle">
+                                  {launch.name}
+                                </Card.Title>
+                                <Card.Text>
+                                  {launch.launch_service_provider.name}
+                                </Card.Text>
+                                <Card.Text>{launch.status.abbrev}</Card.Text>
+                                <Card.Text>
+                                  <DateParser
+                                    dateString={launch.window_start}
+                                  />
+                                </Card.Text>
+                                <CountdownTimer
+                                  targetDate={new Date(
+                                    launch.window_start
+                                  ).getTime()}
+                                />
+                                <Row className="buttonContainer">
+                                  <button className="button">
+                                    {launch.webcast_live ? (
+                                      <>WATCH LIVE</>
+                                    ) : (
+                                      "NO LIVESTREAM"
+                                    )}
+                                  </button>
+                                </Row>
+                                <Tooltip title="Info" arrow placement="left">
+                                  <button className="button infoButton">
+                                    <InfoIcon />
+                                  </button>
+                                </Tooltip>
+                                <Tooltip title="Save" arrow placement="right">
+                                  <button
+                                    onClick={() => handleSaveLaunch(launch.id)}
+                                    className="button removeButton"
+                                  >
+                                    <AddIcon />
+                                  </button>
+                                </Tooltip>
+                              </Card.Body>
+                            </Col>
+                          </Row>
                         </Col>
                       </Row>
                     </Container>
