@@ -13,7 +13,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #072448;
   font-size: 16px;
 }
 
@@ -21,7 +21,7 @@ a {
 
 .navLink {
   border: none;
-  color: #ff851d;
+  color: #ffd700;
   padding: 16px 32px;
   text-align: center;
   font-size: 19px;
@@ -37,7 +37,7 @@ a {
 /* navbar */
 .navBar {
   margin: 10px;
-  background-color: #001F3F;
+  background-color: #072448;
   border-radius: 45px;
   padding: 10px 20px;
   display: flex;
@@ -49,7 +49,7 @@ a {
 
 /* logo  */
 .logo {
-  color: #ff851d;
+  color: #ffd700;
   font-size: 35px;
 }
 
@@ -72,7 +72,7 @@ a {
   }
 
   .bar {
-    background-color: #ff851d;
+    background-color: #ffd700;
     width: 20px;
     height: 3px;
     display: block;
@@ -104,7 +104,7 @@ a {
     width: 100%;
     height: 100vh;
     transition: 0.7s ease-in-out;
-    background-color: rgba(0, 0, 0);
+    background-color: #072448;
     padding: 150px;
     z-index: 1;
   }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import "../assets/css/Countdown.css";
 
 const CountdownTimer = ({ targetDate }) => {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
