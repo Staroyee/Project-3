@@ -1,0 +1,10 @@
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #001F3F;
+}
+
+.footerItem {
+    margin: 10px 30px;
+}

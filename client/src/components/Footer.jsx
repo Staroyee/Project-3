@@ -1,34 +1,30 @@
 // Import necessary components and images.
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-
-// Import social media logos.
-
-// Define custom styles for the footer.
-const styles = {
-  footerStyle: {
-    display: 'flex',
-    justifyContent: 'center',
-    color: '#ff851d',
-  },
-  footerbrandStyle: {
-    margin: '10px 30px',
-  }
-}
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
 
 // Define the 'Footer' component.
 function Footer() {
   return (
     <>
-      <Navbar style={styles.footerStyle} variant='dark'>
+      <Navbar className="footerContainer" variant="dark">
         <Container>
           {/* Create links to social media profiles with respective icons. */}
-          <h4 style={styles.footerbrandStyle} href="https://github.com/Staroyee" target='_blank'>
-            GitHub
-          </h4>
-          <h4 style={styles.footerbrandStyle} href="https://thespacedevs.com/llapi" target='_blank'>
-            Sources
-          </h4>
+          <a
+            className="footerItem"
+            href="https://github.com/Staroyee"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <h4>GitHub</h4>
+          </a>
+          <a
+            className="footerItem"
+            href="https://thespacedevs.com/llapi"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <h4>Sources</h4>
+          </a>
         </Container>
       </Navbar>
     </>

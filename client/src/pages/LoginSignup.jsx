@@ -1,18 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
+import "../assets/css/LoginSignup.css";
 
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm'
-
-const styles = {
-  loginStyle: {
-    color: "white",
-    textAlign: "left",
-  },
-  signupStyle: {
-    color: 'white',
-    textAlign: 'left',
-  }
-};
 
 const LoginSignup = () => {
 
@@ -20,10 +10,10 @@ const LoginSignup = () => {
     <>
     <Container>
       <Row>
-        <Col style={styles.signupStyle}>
+        <Col className="formContainer">
         <SignupForm />
         </Col>
-        <Col style={styles.loginStyle}>
+        <Col className="formContainer">
         <LoginForm />
         </Col>
       </Row>

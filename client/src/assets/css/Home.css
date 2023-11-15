@@ -1,0 +1,18 @@
+.homeContainer {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.homeColumn {
+    text-align: left;
+    padding: 100px;
+}
+
+.title {
+    padding: 20px 0px;
+    font-size: 70px;
+}
+.info {
+    padding-top: 10px;
+}

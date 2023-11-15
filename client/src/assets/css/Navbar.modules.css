@@ -21,7 +21,7 @@ a {
 
 .navLink {
   border: none;
-  color: #485460;
+  color: #ff851d;
   padding: 16px 32px;
   text-align: center;
   font-size: 19px;
@@ -37,19 +37,19 @@ a {
 /* navbar */
 .navBar {
   margin: 10px;
-  background-color: #ff851d;
+  background-color: #001F3F;
   border-radius: 45px;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  min-height: 90px;
+  min-height: 70px;
 }
 
 /* logo  */
 .logo {
-  color: #485460;
+  color: #ff851d;
   font-size: 35px;
 }
 
@@ -72,7 +72,7 @@ a {
   }
 
   .bar {
-    background-color: #ffffff;
+    background-color: #ff851d;
     width: 20px;
     height: 3px;
     display: block;

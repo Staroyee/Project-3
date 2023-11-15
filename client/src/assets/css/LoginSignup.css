@@ -1,0 +1,21 @@
+.formContainer {
+    color: #001F3F;
+    text-align: left;
+}
+
+.formInput {
+    border: #001F3F;
+    background-color: #001F3F;
+    color: #ffffff;
+}
+
+.formInput::placeholder { 
+    color: rgb(250, 250, 250, .5);
+    opacity: 1;
+}
+
+.formInput:focus {
+    border: #001F3F;
+    background-color: #001F3F;
+    color: rgb(250, 250, 250);
+}

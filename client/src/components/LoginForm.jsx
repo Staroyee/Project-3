@@ -67,8 +67,9 @@ const LoginForm = () => {
         <Form.Group className="mb-3">
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
+            className="formInput"
             type="text"
-            placeholder="Your email"
+            placeholder="email"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
@@ -82,8 +83,9 @@ const LoginForm = () => {
         <Form.Group className="mb-3">
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
+            className="formInput"
             type="password"
-            placeholder="Your password"
+            placeholder="password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
