@@ -38,6 +38,7 @@ a {
 .navBar {
   margin: 10px;
   background-color: #072448;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 45px;
   padding: 10px 20px;
   display: flex;

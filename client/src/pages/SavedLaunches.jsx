@@ -7,7 +7,7 @@ import { Container, Card, Row, Col } from "react-bootstrap";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
-import "../assets/css/LaunchCards.css";
+import "../assets/css/SavedLaunches.css";
 
 import { QUERY_ME } from "../utils/queries";
 import { REMOVE_LAUNCH } from "../utils/mutations";
@@ -45,7 +45,7 @@ function SavedLaunches() {
       <Container>
         <Row>
           <Col>
-            <h1>Your Launches</h1>
+            <h1 className="SVL-Title">Your Launches</h1>
           </Col>
         </Row>
         <Row>
@@ -56,19 +56,19 @@ function SavedLaunches() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="card">
+                <Card className="SVL-Card">
                   <Container>
                     <Row>
                       <Col md={12} lg={4}>
                         <Card.Img
-                          className="cardImg"
+                          className="SVL-Img"
                           variant="top"
                           src={launch.image}
                         />
                       </Col>
                       <Col md={12} lg={8}>
                         <Card.Body>
-                          <Card.Title className="cardTitle">
+                          <Card.Title className="SVL-CardTitle">
                             {launch.name}
                           </Card.Title>
                           <Card.Text>{launch.provider}</Card.Text>
@@ -79,17 +79,12 @@ function SavedLaunches() {
                           <CountdownTimer
                             targetDate={new Date(launch.date).getTime()}
                           />
-                          <Row className="buttonContainer">
-                            <button className="button">WATCH LIVE</button>
+                          <Row className="SVL-ButtonContainer">
+                            <button className="SVL-Button">WATCH LIVE</button>
                           </Row>
-                          <Tooltip title="Info" arrow placement="left">
-                            <button className="button infoButton">
-                              <InfoIcon />
-                            </button>
-                          </Tooltip>
                           <Tooltip title="Remove" arrow placement="right">
                             <button
-                              className="button removeButton"
+                              className="SVL-Button"
                               onClick={() =>
                                 handleRemoveLaunch(launch.launchId)
                               }

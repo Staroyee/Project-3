@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 import CountdownTimer from "../components/Countdown";
@@ -73,7 +74,7 @@ function Launch() {
       <Container>
         <Row>
           <Col>
-            <h1>Launches</h1>
+            <h1 className="L-Title">Launches</h1>
           </Col>
         </Row>
         <Row>
@@ -85,12 +86,12 @@ function Launch() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="card">
+                  <Card className="L-Card">
                     <Container>
                       <Row>
                         <Col md={12} lg={4}>
                           <Card.Img
-                            className="cardImg"
+                            className="L-Img"
                             src={launch.image}
                           ></Card.Img>
                         </Col>
@@ -99,7 +100,7 @@ function Launch() {
                           <Row>
                             <Col>
                               <Card.Body>
-                                <Card.Title className="cardTitle">
+                                <Card.Title className="L-Title">
                                   {launch.name}
                                 </Card.Title>
                                 <Card.Text>
@@ -116,8 +117,8 @@ function Launch() {
                                     launch.window_start
                                   ).getTime()}
                                 />
-                                <Row className="buttonContainer">
-                                  <button className="button">
+                                <Row className="L-ButtonContainer">
+                                  <button className="L-Button">
                                     {launch.webcast_live ? (
                                       <>WATCH LIVE</>
                                     ) : (
@@ -126,14 +127,16 @@ function Launch() {
                                   </button>
                                 </Row>
                                 <Tooltip title="Info" arrow placement="left">
-                                  <button className="button infoButton">
-                                    <InfoIcon />
-                                  </button>
+                                  <Link to={`/launch/${launch.id}`}>
+                                    <button className="L-Button">
+                                      <InfoIcon />
+                                    </button>
+                                  </Link>
                                 </Tooltip>
                                 <Tooltip title="Save" arrow placement="right">
                                   <button
                                     onClick={() => handleSaveLaunch(launch.id)}
-                                    className="button removeButton"
+                                    className="L-Button"
                                   >
                                     <AddIcon />
                                   </button>

@@ -16,9 +16,9 @@ const DateParser = ({ dateString }) => {
   };
 
   return (
-    <div>
+    <>
       {parseAndFormatDate(dateString)}
-    </div>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ import LoginSignup from './pages/LoginSignup';
 import Profile from './pages/Profile';
 import Launch from './pages/Launch';
 import SavedLaunches from './pages/SavedLaunches.jsx';
+import SingleLaunch from './pages/SingleLaunch.jsx';
 
 
 
@@ -34,6 +35,9 @@ const router = createBrowserRouter([
       }, {
         path: '/saved-launches',
         element: <SavedLaunches />
+      }, {
+        path: '/launch/:launchId',
+        element: <SingleLaunch />
       }
     ]
   }

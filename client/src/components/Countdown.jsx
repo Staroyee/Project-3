@@ -65,7 +65,7 @@ const CountdownTimer = ({ targetDate }) => {
 };
 
 CountdownTimer.propTypes = {
-    targetDate: PropTypes.string,
+    targetDate: PropTypes.number,
 }
 
 export default CountdownTimer;

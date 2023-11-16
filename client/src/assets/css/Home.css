@@ -1,31 +1,35 @@
-.homeContainer {
-    display: flex;
-    align-items: center;
-    min-height: 80vh;
+.H-Title {
+  color: #072448;
+  border-bottom: 2px solid #ffd700;
+  padding: 20px 0px;
+  font-size: 70px;
+  text-shadow: 0px 0px 6px rgba(57, 62, 65, 0.6);
 }
 
-.homeColumn {
-    text-align: left;
-    padding: 100px;
+.H-Container {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
 }
 
-.title {
-    padding: 20px 0px;
-    font-size: 70px;
+.H-Column {
+  text-align: left;
+  padding: 100px 0px;
 }
-.info {
-    padding-top: 10px;
-    color: #072448;
+
+.H-Info {
+  padding-top: 10px;
+  color: #072448;
 }
 
 @media screen and (max-width: 991.98px) {
-    .homeColumn {
-        text-align: center;
-        padding: 0;
-    }
+  .H-Column {
+    text-align: center;
+    padding: 0;
+  }
 
-    .title {
-        font-size: 50px;
-        font-weight: 800;
-    }
+  .H-Title {
+    font-size: 50px;
+    font-weight: 800;
+  }
 }
