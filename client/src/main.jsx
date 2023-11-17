@@ -1,48 +1,56 @@
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
-import App from './App.jsx';
-import Error from './pages/Error.jsx'
-import Home from './pages/Home';
-import LoginSignup from './pages/LoginSignup';
-import Profile from './pages/Profile';
-import Launch from './pages/Launch';
-import SavedLaunches from './pages/SavedLaunches.jsx';
-import SingleLaunch from './pages/SingleLaunch.jsx';
-
-
+import App from "./App.jsx";
+import Error from "./pages/Error.jsx";
+import Home from "./pages/Home";
+import LoginSignup from "./pages/LoginSignup";
+import Profile from "./pages/Profile";
+import Launch from "./pages/Launch";
+import SavedLaunches from "./pages/SavedLaunches.jsx";
+import SingleLaunch from "./pages/SingleLaunch.jsx";
+import UpdateProfileForm from "./pages/UpdateProfileForm.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     error: <Error />,
     children: [
       {
-        index: true, 
-        element: <Home />
-      }, {
-        path: '/login-signup',
-        element: <LoginSignup />
-      }, {
-        path: '/profile',
-        element: <Profile />
-      }, {
-        path: '/launches',
-        element: <Launch />
-      }, {
-        path: '/saved-launches',
-        element: <SavedLaunches />
-      }, {
-        path: '/launch/:launchId',
-        element: <SingleLaunch />
-      }
-    ]
-  }
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/login-signup",
+        element: <LoginSignup />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/update-profile",
+        element: <UpdateProfileForm />,
+      },
+      {
+        path: "/launches",
+        element: <Launch />,
+      },
+      {
+        path: "/saved-launches",
+        element: <SavedLaunches />,
+      },
+      {
+        path: "/launch/:launchId",
+        element: <SingleLaunch />,
+      },
+    ],
+  },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
-)
+);
