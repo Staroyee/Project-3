@@ -5,7 +5,6 @@ import DateParser from "../components/DateParser";
 import { motion } from "framer-motion";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ClearIcon from "@mui/icons-material/Clear";
-import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
 import "../assets/css/SavedLaunches.css";
 

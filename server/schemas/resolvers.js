@@ -13,7 +13,9 @@ const resolvers = {
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (_, __, context) => {
       if (context.profile) {
-        return Profile.findOne({ _id: context.profile._id }).select("-__v -password");
+        return Profile.findOne({ _id: context.profile._id }).select(
+          "-__v -password"
+        );
       }
       throw AuthenticationError;
     },
@@ -26,19 +28,38 @@ const resolvers = {
 
       return { token, profile };
     },
+    
+    updateProfile: async (_, { username, email, password }, context) => {
+      try {
+        if (context.profile) {
+          if (password) {
+            const saltRounds = 10;
+            password = await bcrypt.hash(password, saltRounds);
+          }
+          const updatedProfile = await Profile.findByIdAndUpdate(
+            context.profile._id,
+            { $set: { username, email, password } },
+            { new: true }
+          );
+          return updatedProfile;
+        }
+        throw AuthenticationError;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to update profile");
+      }
+    },
+
     login: async (_, { email, password }) => {
       const profile = await Profile.findOne({ email });
-
       if (!profile) {
         throw AuthenticationError;
       }
-
       const correctPw = await profile.isCorrectPassword(password);
 
       if (!correctPw) {
         throw AuthenticationError;
       }
-
       const token = signToken(profile);
       return { token, profile };
     },

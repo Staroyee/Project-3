@@ -42,6 +42,7 @@ const typeDefs = `
 
   type Mutation {
     addProfile(username: String!, email: String!, password: String!): Auth
+    updateProfile(username: String, email: String, password: String): Profile
     login(email: String!, password: String!): Auth
     removeProfile: Profile
     saveLaunch(launch: LaunchInput): Profile
