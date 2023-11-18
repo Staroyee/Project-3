@@ -8,16 +8,18 @@ import DateParser from "../components/DateParser.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { Triangle } from "react-loader-spinner";
 import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
-import "../assets/css/LaunchCards.css";
+import "../assets/css/Launch.css";
 
 import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
 function Launch() {
   const [launchData, setLaunchData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {
     refetchQueries: [{ query: QUERY_ME }], // Optional: refetch the user data after saving a launch
   });
@@ -33,9 +35,11 @@ function Launch() {
       .then((response) => {
         console.log(response.results);
         setLaunchData(response.results);
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
+        setLoading(false);
       });
   };
 
@@ -71,88 +75,115 @@ function Launch() {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col>
-            <h1 className="L-Title">Launches</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {launchData.length > 0 &&
-              launchData.map((launch) => (
-                <motion.div
-                  key={launch.id}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card className="L-Card">
-                    <Container>
-                      <Row>
-                        <Col md={12} lg={4}>
-                          <Card.Img
-                            className="L-Img"
-                            src={launch.image}
-                          ></Card.Img>
-                        </Col>
-
-                        <Col md={12} lg={8}>
+      {loading ? (
+        <>
+          <Container>
+            <Row>
+              <Col className="L-LoadingContainer">
+                <Triangle color="#00BFFF" height={80} width={80} />
+                <p>Loading...</p>
+              </Col>
+            </Row>
+          </Container>
+        </>
+      ) : (
+        <>
+          <Container>
+            <Row>
+              <Col>
+                <h1 className="L-Title">Launches</h1>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                {launchData.length > 0 &&
+                  launchData.map((launch) => (
+                    <motion.div
+                      key={launch.id}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Card className="L-Card">
+                        <Container>
                           <Row>
-                            <Col>
-                              <Card.Body>
-                                <Card.Title className="L-Title">
-                                  {launch.name}
-                                </Card.Title>
-                                <Card.Text>
-                                  {launch.launch_service_provider.name}
-                                </Card.Text>
-                                <Card.Text>{launch.status.abbrev}</Card.Text>
-                                <Card.Text>
-                                  <DateParser
-                                    dateString={launch.window_start}
-                                  />
-                                </Card.Text>
-                                <CountdownTimer
-                                  targetDate={new Date(
-                                    launch.window_start
-                                  ).getTime()}
-                                />
-                                <Row className="L-ButtonContainer">
-                                  <button className="L-Button">
-                                    {launch.webcast_live ? (
-                                      <>WATCH LIVE</>
-                                    ) : (
-                                      "NO LIVESTREAM"
-                                    )}
-                                  </button>
-                                </Row>
-                                <Tooltip title="Info" arrow placement="left">
-                                  <Link to={`/launch/${launch.id}`}>
-                                    <button className="L-Button">
-                                      <InfoIcon />
-                                    </button>
-                                  </Link>
-                                </Tooltip>
-                                <Tooltip title="Save" arrow placement="right">
-                                  <button
-                                    onClick={() => handleSaveLaunch(launch.id)}
-                                    className="L-Button"
-                                  >
-                                    <AddIcon />
-                                  </button>
-                                </Tooltip>
-                              </Card.Body>
+                            <Col md={12} lg={4}>
+                              <Card.Img
+                                className="L-Img"
+                                src={launch.image}
+                              ></Card.Img>
+                            </Col>
+
+                            <Col md={12} lg={8}>
+                              <Row>
+                                <Col>
+                                  <Card.Body>
+                                    <Card.Title className="L-Title">
+                                      {launch.name}
+                                    </Card.Title>
+                                    <Card.Text>
+                                      {launch.launch_service_provider.name}
+                                    </Card.Text>
+                                    <Card.Text>
+                                      {launch.status.abbrev}
+                                    </Card.Text>
+                                    <Card.Text>
+                                      <DateParser
+                                        dateString={launch.window_start}
+                                      />
+                                    </Card.Text>
+                                    <CountdownTimer
+                                      targetDate={new Date(
+                                        launch.window_start
+                                      ).getTime()}
+                                    />
+                                    <Row className="L-ButtonContainer">
+                                      <button className="L-Button">
+                                        {launch.webcast_live ? (
+                                          <>WATCH LIVE</>
+                                        ) : (
+                                          "NO LIVESTREAM"
+                                        )}
+                                      </button>
+                                      <Tooltip
+                                        title="Info"
+                                        arrow
+                                        placement="right"
+                                      >
+                                        <Link to={`/launch/${launch.id}`}>
+                                          <button className="L-Button">
+                                            <InfoIcon />
+                                          </button>
+                                        </Link>
+                                      </Tooltip>
+                                      <Tooltip
+                                        title="Save"
+                                        arrow
+                                        placement="right"
+                                      >
+                                        <button
+                                          onClick={() =>
+                                            handleSaveLaunch(launch.id)
+                                          }
+                                          className="L-Button"
+                                        >
+                                          <AddIcon />
+                                        </button>
+                                      </Tooltip>
+                                    </Row>
+                                  </Card.Body>
+                                </Col>
+                              </Row>
                             </Col>
                           </Row>
-                        </Col>
-                      </Row>
-                    </Container>
-                  </Card>
-                </motion.div>
-              ))}
-          </Col>
-        </Row>
-      </Container>
+                        </Container>
+                      </Card>
+                    </motion.div>
+                  ))}
+              </Col>
+            </Row>
+          </Container>
+        </>
+      )}
     </>
   );
 }

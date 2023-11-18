@@ -1,26 +1,6 @@
-/* default styling */
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-ul {
-  margin: 0;
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: #072448;
-  font-size: 16px;
-}
-
-
-
 .navLink {
   border: none;
+  border-radius: 30px;
   color: #ffd700;
   padding: 16px 32px;
   text-align: center;
@@ -31,8 +11,10 @@ a {
 }
 
 .navLink:hover {
-  opacity: 1;
+  background-color: #0d315e;
 }
+
+
 
 /* navbar */
 .navBar {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import { Row, Col } from "react-bootstrap";
+import "../assets/css/Countdown.css"
 
 const CountdownTimer = ({ targetDate }) => {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
@@ -38,26 +39,26 @@ const CountdownTimer = ({ targetDate }) => {
     <>
       <Row>
         <Col>
-          <h2>T-</h2>
+          <h2 className="C-H2">T-</h2>
         </Col>
         <Col>
-          <h2>{timeRemaining.days}</h2>
-          <p>Days</p>
+          <h2 className="C-H2">{timeRemaining.days}</h2>
+          <p className="C-P">Days</p>
         </Col>
-        <Col><h2>:</h2></Col>
+        <Col><h2 className="C-H2">:</h2></Col>
         <Col>
-          <h2>{timeRemaining.hours}</h2>
-          <p>Hours</p>
+          <h2 className="C-H2">{timeRemaining.hours}</h2>
+          <p className="C-P">Hours</p>
         </Col>
-        <Col><h2>:</h2></Col>
+        <Col><h2 className="C-H2">:</h2></Col>
         <Col>
-          <h2>{timeRemaining.minutes}</h2>
-          <p>Mins</p>
+          <h2 className="C-H2">{timeRemaining.minutes}</h2>
+          <p className="C-P">Mins</p>
         </Col>
-        <Col><h2>:</h2></Col>
+        <Col><h2 className="C-H2">:</h2></Col>
         <Col>
-          <h2>{timeRemaining.seconds}</h2>
-          <p>Secs</p>
+          <h2 className="C-H2">{timeRemaining.seconds}</h2>
+          <p className="C-P">Secs</p>
         </Col>
       </Row>
     </>
