@@ -1,6 +1,6 @@
 // Import necessary dependencies and components
 import { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 
 import Auth from "../utils/auth"; // Import the authentication utility
 import { useMutation } from "@apollo/client";
@@ -54,7 +54,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 className="LS-LoginTitle">Login</h1>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -96,13 +96,13 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button
+        <button
+          className="LS-Button"
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          variant="success"
         >
           Login
-        </Button>
+        </button>
       </Form>
     </>
   );

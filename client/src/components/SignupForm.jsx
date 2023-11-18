@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
 import { ADD_PROFILE } from "../utils/mutations";
@@ -50,7 +50,7 @@ const SignupForm = () => {
 
   return (
     <>
-      <h1>Signup</h1>
+      <h1 className="LS-SignupTitle">Signup</h1>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* Show an alert if there's an issue with the signup */}
@@ -111,7 +111,8 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button
+        <button
+          className="LS-Button"
           disabled={
             !(
               userFormData.username &&
@@ -120,10 +121,9 @@ const SignupForm = () => {
             )
           }
           type="submit"
-          variant="success"
         >
           Signup
-        </Button>
+        </button>
       </Form>
     </>
   );
