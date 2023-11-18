@@ -1,0 +1,38 @@
+.UPF-Container {
+    border-radius: 1rem;
+  text-align: left;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin-top: 5rem;
+}
+
+.UPF-Title {
+  color: #072448;
+  border-bottom: 2px solid #ffd700;
+}
+
+.UPF-FormGroup {
+  padding: 2rem 2rem;
+}
+
+.UPF-ButtonContainer {
+  padding: 2rem 2rem;
+}
+
+.UPF-Button {
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  margin: 5px;
+  padding: 3px;
+  width: 180px;
+  background-color: #072448;
+  border: #072448;
+  color: #ffd700;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.UPF-Button:hover {
+  background-color: #ffd700;
+  color: #072448;
+}
