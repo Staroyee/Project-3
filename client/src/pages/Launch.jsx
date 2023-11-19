@@ -18,6 +18,9 @@ import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
 function Launch() {
+
+  const targetDate = new Date().getTime() + 3600000;
+  console.log(targetDate)
   const [launchData, setLaunchData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {

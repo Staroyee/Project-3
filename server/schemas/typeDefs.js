@@ -23,6 +23,15 @@ const typeDefs = `
     profile: Profile
   }
 
+  type APOD {
+    copyright: String
+    date: String
+    explanation: String
+    title: String
+    hdurl: String
+    media_type: String
+  }
+
   input LaunchInput {
     launchId: ID
     name: String
@@ -38,6 +47,7 @@ const typeDefs = `
     profiles: [Profile]!
     profile(profileId: ID!): Profile
     me: Profile
+    apod: APOD
   }
 
   type Mutation {

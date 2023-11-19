@@ -1,6 +1,11 @@
 const { Profile } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const bcrypt = require("bcrypt");
+const axios = require("axios");
+require('dotenv').config();
+const { NASA_API_KEY } = process.env;
+
+console.log('NASA_API_KEY:', NASA_API_KEY);
 
 const resolvers = {
   Query: {
@@ -20,6 +25,26 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+      apod: async () => {
+        try {
+          // Make a request to the NASA APOD API using the API key
+          const response = await axios.get(
+            "https://api.nasa.gov/planetary/apod",
+            {
+              params: {
+                api_key: NASA_API_KEY,
+              },
+            }
+          );
+
+          // Return the APOD API response data
+          return response.data;
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error.message);
+          throw new Error("Internal Server Error");
+        }
+      },
   },
 
   Mutation: {
@@ -29,7 +54,7 @@ const resolvers = {
 
       return { token, profile };
     },
-    
+
     updateProfile: async (_, { username, email, password }, context) => {
       try {
         if (context.profile) {
