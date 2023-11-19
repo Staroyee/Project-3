@@ -40,6 +40,11 @@ function Navbar() {
                 Launches
               </Link>
             </li>
+            <li onClick={() => handleLinkClick("picture-of-the-day")}>
+              <Link to="/picture-of-the-day" {...commonLinkProps} style={{ opacity: activeLink === "picture-of-the-day" ? 1 : 0.6 }}>
+              APOD
+              </Link>
+            </li>
             <li onClick={() => handleLinkClick("saved-launches")}>
               <Link to="/saved-launches" {...commonLinkProps} style={{ opacity: activeLink === "saved-launches" ? 1 : 0.6 }}>
                 Saved Launches
@@ -71,6 +76,11 @@ function Navbar() {
             <li onClick={() => handleLinkClick("launches")}>
               <Link to="/launches" {...commonLinkProps} style={{ opacity: activeLink === "launches" ? 1 : 0.6 }}>
                 Launches
+              </Link>
+            </li>
+            <li onClick={() => handleLinkClick("picture-of-the-day")}>
+              <Link to="/picture-of-the-day" {...commonLinkProps} style={{ opacity: activeLink === "picture-of-the-day" ? 1 : 0.6 }}>
+              APOD
               </Link>
             </li>
             <li onClick={() => handleLinkClick("login-signup")}>

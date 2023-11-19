@@ -37,3 +37,15 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_APOD = gql`
+query apod {
+  apod {
+    copyright
+    date
+    explanation
+    title
+    hdurl
+    media_type
+  }
+}`
