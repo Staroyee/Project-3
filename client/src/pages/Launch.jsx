@@ -21,7 +21,7 @@ function Launch() {
   const [launchData, setLaunchData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {
-    refetchQueries: [{ query: QUERY_ME }], // Optional: refetch the user data after saving a launch
+    refetchQueries: [{ query: QUERY_ME }],
   });
 
   useEffect(() => {

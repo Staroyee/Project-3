@@ -16,7 +16,7 @@ import { QUERY_ME } from "../utils/queries";
 
 const SingleLaunch = () => {
   const [launchData, setLaunchData] = useState(null);
-  const [agencyData, setAgencyData] = useState(null); // New state for agencyData
+  const [agencyData, setAgencyData] = useState(null);
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {
     refetchQueries: [{ query: QUERY_ME }],
   });

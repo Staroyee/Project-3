@@ -18,7 +18,6 @@ const UpdateProfileForm = () => {
       await updateProfile({
         variables: { username, email, password },
       });
-      // Optionally, you can fetch the updated profile data and update the UI
     } catch (error) {
       console.error("Update failed:", error.message);
     }
