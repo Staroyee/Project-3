@@ -3,7 +3,7 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const bcrypt = require("bcrypt");
 const axios = require("axios");
 require('dotenv').config();
-const { NASA_API_KEY } = process.env;
+const { NASA_API_KEY } = process.env.NASA_API_KEY;
 
 console.log('NASA_API_KEY:', NASA_API_KEY);
 
