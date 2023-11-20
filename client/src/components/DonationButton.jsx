@@ -1,7 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_test_51OEQ8QIUYfXVTgToR6r3vc06aTDKKz2F9lWOdgw9PFDkr61xvpBjVe5hREPUVTDVfQdiCuAh3sj1sRQ5nCoF5FAi00wyzfEzS9"
+  "pk_live_51OEQ8QIUYfXVTgTojMTTZ0FpHN5xQYruAb4JGPHlI3QMWCW9kkQ7f6JmZV9txvtdr3i9u72O2FJJSVSy7ySnFJmQ00WhjlRlw7"
 );
 
 const DonationButton = ({ itemID, amount }) => {
@@ -11,8 +11,8 @@ const DonationButton = ({ itemID, amount }) => {
       .redirectToCheckout({
         lineItems: [{ price: itemID, quantity: 1 }],
         mode: "payment",
-        successUrl: window.location.protocol + "//localpdf.tech/merge",
-        cancelUrl: window.location.protocol + "//localpdf.tech/merge",
+        successUrl: window.location.protocol + "//lskyward-project-57c549ccb969.herokuapp.com/donate",
+        cancelUrl: window.location.protocol + "//skyward-project-57c549ccb969.herokuapp.com/donate",
         submitType: "donate",
       })
       .then(function (result) {
