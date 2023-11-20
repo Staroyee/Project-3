@@ -13,6 +13,7 @@ import SavedLaunches from "./pages/SavedLaunches.jsx";
 import SingleLaunch from "./pages/SingleLaunch.jsx";
 import UpdateProfileForm from "./pages/UpdateProfileForm.jsx";
 import NasaDailyPic from "./pages/NasaDailyPic.jsx";
+import Donate from "./pages/Donate.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/picture-of-the-day",
         element: <NasaDailyPic />
+      },
+      {
+        path: "/donate",
+        element: <Donate />
       }
     ],
   },
