@@ -11,7 +11,7 @@ const DonationButton = ({ itemID, amount }) => {
       .redirectToCheckout({
         lineItems: [{ price: itemID, quantity: 1 }],
         mode: "payment",
-        successUrl: window.location.protocol + "//lskyward-project-57c549ccb969.herokuapp.com/donate",
+        successUrl: window.location.protocol + "//skyward-project-57c549ccb969.herokuapp.com/donate",
         cancelUrl: window.location.protocol + "//skyward-project-57c549ccb969.herokuapp.com/donate",
         submitType: "donate",
       })
