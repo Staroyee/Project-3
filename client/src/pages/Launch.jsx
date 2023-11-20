@@ -18,9 +18,6 @@ import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
 function Launch() {
-
-  const targetDate = new Date().getTime() + 3600000;
-  console.log(targetDate)
   const [launchData, setLaunchData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {
@@ -36,7 +33,6 @@ function Launch() {
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response.results);
         setLaunchData(response.results);
         setLoading(false);
       })
@@ -92,11 +88,7 @@ function Launch() {
       ) : (
         <>
           <Container>
-            <Row>
-              <Col>
-                <h1 className="L-Title">Launches</h1>
-              </Col>
-            </Row>
+            <h1 className="L-Title">Launches</h1>
             <Row>
               <Col>
                 {launchData.length > 0 &&

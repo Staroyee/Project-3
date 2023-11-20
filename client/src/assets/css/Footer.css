@@ -8,6 +8,19 @@
     margin: 10px 30px;
 }
 
-.donate {
+.footerLink {
     color: #072448;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 380.98px) {
+    .footerItem {
+        margin: 10px 30px;
+    }
+    .footerLink {
+        color: #072448;
+        font-size: 14px;
+        text-decoration: none;
+    }
 }

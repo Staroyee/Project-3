@@ -17,10 +17,10 @@ function Footer() {
             rel="noreferrer"
             target="_blank"
           >
-            <h4>GitHub</h4>
+            <h4 className="footerLink">GitHub</h4>
           </a>
           <Link to="/donate" >
-            <h4 className="donate">
+            <h4 className="footerLink">
               Donate
             </h4>
           </Link>
@@ -30,7 +30,7 @@ function Footer() {
             rel="noreferrer"
             target="_blank"
           >
-            <h4>Sources</h4>
+            <h4 className="footerLink">Sources</h4>
           </a>
         </Container>
       </Navbar>

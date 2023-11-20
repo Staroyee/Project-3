@@ -1,0 +1,44 @@
+.NDP-Container {
+    padding: 3rem 10rem
+}
+
+.NDP-Card {
+    padding: 2rem;
+}
+
+.NDP-CardTitle {
+    color: #072448;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 3rem;
+  text-shadow: 0px 0px 6px rgba(57, 62, 65, 0.6);
+}
+
+.NDP-PicTitle {
+    color: #072448;
+    border-bottom: 2px solid #ffd700;
+    padding-top: 50px;
+    padding-bottom: 3rem;
+}
+
+.NDP-Img {
+    border-radius: 15px;
+    max-width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.NDP-Copyright {
+    font-size: 13px;
+}
+
+@media screen and (max-width: 767.98px) {
+    .NDP-Container {
+        padding: 3rem 5rem
+    }
+}
+
+@media screen and (max-width: 419.98px) {
+    .NDP-Container {
+        padding: 3rem 2rem
+    }
+}
