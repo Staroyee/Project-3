@@ -29,10 +29,11 @@ function Launch() {
   }, []);
 
   const getLaunchData = () => {
-    let launchUrl = "https://lldev.thespacedevs.com/2.2.0/launch/upcoming/";
+    let launchUrl = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/";
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {
+        console.log(response.results)
         setLaunchData(response.results);
         setLoading(false);
       })
