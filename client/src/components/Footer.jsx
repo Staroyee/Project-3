@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import "../assets/css/Footer.css"
 
 // Define the 'Footer' component.
 function Footer() {
@@ -19,7 +20,7 @@ function Footer() {
             <h4>GitHub</h4>
           </a>
           <Link to="/donate" >
-            <h4>
+            <h4 className="donate">
               Donate
             </h4>
           </Link>
