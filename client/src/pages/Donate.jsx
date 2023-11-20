@@ -19,7 +19,7 @@ function Donate() {
             <Col>
               <DonationButton
                 amount={"10.00"}
-                itemID="price_1OEQwBIUYfXVTgToHf2aOLe4"
+                itemID="price_1OETdYIUYfXVTgToTBF1oNId"
               />
             </Col>
           </Row>
@@ -27,7 +27,7 @@ function Donate() {
             <Col>
               <DonationButton
                 amount={"20.00"}
-                itemID="price_1OEQwBIUYfXVTgTotNL3xxio"
+                itemID="price_1OETduIUYfXVTgTowVXKmFMR"
               />
             </Col>
           </Row>
@@ -35,7 +35,7 @@ function Donate() {
             <Col>
               <DonationButton
                 amount={"50.00"}
-                itemID="price_1OEQwBIUYfXVTgToWKfT8zRf"
+                itemID="price_1OETeIIUYfXVTgToH59NAeH7"
               />
             </Col>
           </Row>
