@@ -24,14 +24,9 @@ function Footer() {
               Donate
             </h4>
           </Link>
-          <a
-            className="footerItem"
-            href="https://thespacedevs.com/llapi"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <h4 className="footerLink">Sources</h4>
-          </a>
+          <Link to="/apis" >
+            <h4 className="footerLink">APIs</h4>
+          </Link>
         </Container>
       </Navbar>
     </>

@@ -1,0 +1,38 @@
+.A-Title {
+    color: #072448;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-shadow: 0px 0px 6px rgba(57, 62, 65, 0.6);
+  }
+
+  .A-Card {
+    margin-top: 30px;
+    padding: 20px 20px;
+    background-color: #fafae4;
+    box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.3);
+    color: #072448;
+    border: 0.5px solid rgb(218, 218, 218);
+  }
+
+  .A-CardTitle {
+    padding: 20px 0px;
+    border-top: 2px solid #ffd700;
+  }
+
+  .A-Button {
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 7px;
+    width: 180px;
+    background-color: #072448;
+    border: #072448;
+    color: #ffd700;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .A-Button:hover {
+    background-color: #ffd700;
+    color: #072448;
+  }
+  

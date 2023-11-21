@@ -14,6 +14,7 @@ import SingleLaunch from "./pages/SingleLaunch.jsx";
 import UpdateProfileForm from "./pages/UpdateProfileForm.jsx";
 import NasaDailyPic from "./pages/NasaDailyPic.jsx";
 import Donate from "./pages/Donate.jsx";
+import Apis from "./pages/Apis.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/donate",
         element: <Donate />
+      },
+      {
+        path: "/apis",
+        element: <Apis />
       }
     ],
   },

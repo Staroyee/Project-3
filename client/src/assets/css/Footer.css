@@ -4,14 +4,12 @@
     justify-content: center;
 }
 
-.footerItem {
-    margin: 10px 30px;
-}
 
 .footerLink {
     color: #072448;
     font-size: 20px;
     text-decoration: none;
+    margin: 20px 30px;
 }
 
 @media screen and (max-width: 380.98px) {
