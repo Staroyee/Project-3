@@ -5,10 +5,10 @@ import Auth from "../utils/auth";
 
 import CountdownTimer from "../components/Countdown";
 import DateParser from "../components/DateParser.jsx";
+import Loading from "../components/Loading.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { Triangle } from "react-loader-spinner";
 import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
@@ -77,14 +77,7 @@ function Launch() {
     <>
       {loading ? (
         <>
-          <Container>
-            <Row>
-              <Col className="L-LoadingContainer">
-                <Triangle color="#00BFFF" height={80} width={80} />
-                <p>Loading...</p>
-              </Col>
-            </Row>
-          </Container>
+          <Loading />
         </>
       ) : (
         <>

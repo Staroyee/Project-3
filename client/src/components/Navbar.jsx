@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../assets/images/logo.png"
 import Auth from "../utils/auth";
 import "../assets/css/Navbar.modules.css";
 
@@ -98,8 +99,11 @@ function Navbar() {
     <div className="App">
       <header className="App-header">
         <nav className={`navBar`}>
-          <Link to="/" className={`logo`}>
-            SKYWARD{" "}
+          <Link to="/">
+          <img className={`logo`}
+            src={Logo}
+            alt="Logo"
+          />
           </Link>
           {ShowNav()}
           <div

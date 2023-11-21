@@ -11,7 +11,7 @@ https://skyward-project-57c549ccb969.herokuapp.com/
 ## User Story
 
 AS a user learning about space, I WANT a website & community where I can explore various different space facts including launches, and space images.
-SO THAT I can expant my knowledge in my areas of interest.
+SO THAT I can expand my knowledge in my areas of interest.
 
 ## Technologies/Packages/APIs
 

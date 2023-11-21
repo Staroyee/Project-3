@@ -1,12 +1,13 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { QUERY_APOD } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import Loading from "../components/Loading";
 import "../assets/css/NasaDailyPic.css";
 
 function NasaDailyPic() {
   const { loading, error, data } = useQuery(QUERY_APOD);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
 
   const { apod } = data;
