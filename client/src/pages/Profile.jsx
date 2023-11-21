@@ -4,11 +4,12 @@ import { QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import { Container, Row, Col } from "react-bootstrap";
 import "../assets/css/Profile.css";
+import Loading from "../components/Loading";
 
 function Profile() {
   const { loading, error, data } = useQuery(QUERY_ME);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
 
   const { me } = data;

@@ -30,6 +30,8 @@ function Launch() {
 
   const getLaunchData = () => {
     let launchUrl = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/";
+    let throttleUrl = "https://ll.thespacedevs.com/2.2.0/api-throttle";
+    fetch(throttleUrl)
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {

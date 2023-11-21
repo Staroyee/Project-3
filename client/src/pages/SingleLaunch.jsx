@@ -5,6 +5,7 @@ import Auth from "../utils/auth";
 
 import CountdownTimer from "../components/Countdown";
 import DateParser from "../components/DateParser.jsx";
+import Loading from "../components/Loading.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
@@ -76,7 +77,7 @@ const SingleLaunch = () => {
   };
 
   if ((!launchData, !agencyData)) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
