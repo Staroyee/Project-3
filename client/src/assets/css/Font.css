@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'nasalization';
+    src: local('nasalization'),
+         url('../fonts/nasalization-rg') format('woff'),
+}

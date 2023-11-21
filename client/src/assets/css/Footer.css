@@ -1,24 +1,21 @@
 .footerContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .footerLink {
-    color: #072448;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 20px 30px;
+  color: #072448;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 20px 30px;
 }
 
 @media screen and (max-width: 380.98px) {
-    .footerItem {
-        margin: 10px 30px;
-    }
-    .footerLink {
-        color: #072448;
-        font-size: 14px;
-        text-decoration: none;
-    }
+  .footerLink {
+    color: #072448;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 20px 20px;
+  }
 }
