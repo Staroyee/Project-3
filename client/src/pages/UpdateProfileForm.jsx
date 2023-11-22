@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+// Import Mutations
 import { UPDATE_PROFILE } from "../utils/mutations";
-
+// Import Styling
 import { Container, Row, Col, Form } from "react-bootstrap";
 import "../assets/css/UpdateProfileForm.css"
 
+// Define UpdateProfileForm page
 const UpdateProfileForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Use mutation to update a users profile details
   const [updateProfile] = useMutation(UPDATE_PROFILE);
 
+  // Function to handle the updating of a users profile
   const handleUpdate = async () => {
     try {
       await updateProfile({
@@ -23,6 +27,7 @@ const UpdateProfileForm = () => {
     }
   };
 
+  // Return page data
   return (
     <>
       <Container className="UPF-Container">
@@ -69,4 +74,5 @@ const UpdateProfileForm = () => {
   );
 };
 
+// Export page
 export default UpdateProfileForm;

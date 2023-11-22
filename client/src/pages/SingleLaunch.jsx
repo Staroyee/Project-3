@@ -2,27 +2,33 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
-
+// Import Components
 import CountdownTimer from "../components/Countdown";
 import DateParser from "../components/DateParser.jsx";
 import Loading from "../components/Loading.jsx";
-
+// Import Styling
 import { Container, Row, Col, Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
 import Tooltip from "@mui/material/Tooltip";
 import "../assets/css/SingleLaunch.css";
-
+// Import queries and mutations
 import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
+// Define SingleLaunch page
 const SingleLaunch = () => {
+  // Use state to set and access launch data
   const [launchData, setLaunchData] = useState(null);
+  // Use state to set and access agency data
   const [agencyData, setAgencyData] = useState(null);
+  // Use mutation to fetch a user and save launch to user profile
   const [saveLaunch] = useMutation(SAVE_LAUNCH, {
     refetchQueries: [{ query: QUERY_ME }],
   });
+  // Set launch id to use theParams
   const { launchId } = useParams();
 
+  // Use effect to fetch the data from the launch and agency API urls
   useEffect(() => {
     const fetchLaunchDetails = async () => {
       try {
@@ -46,14 +52,16 @@ const SingleLaunch = () => {
     fetchLaunchDetails();
   }, [launchId]);
 
+  // Handle the saving of a launch to the users profile
   const handleSaveLaunch = async (launchId) => {
     const launchToSave = launchData.find((launch) => launch.id === launchId);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
+    // If not logged in return false
     if (!token) {
       return false;
     }
-
+    // Define the data to be saved to a users profile
     try {
       await saveLaunch({
         variables: {
@@ -76,10 +84,12 @@ const SingleLaunch = () => {
     }
   };
 
+  // If data has not been loaded return loading component
   if ((!launchData, !agencyData)) {
     return <Loading />;
   }
 
+  // Else return page data
   return (
     <>
       <Container>
@@ -114,6 +124,7 @@ const SingleLaunch = () => {
                           <DateParser dateString={launchData.window_start} />
                         </Card.Text>
                         <Card.Text>{launchData.status.description}</Card.Text>
+                        {/* Countdown timer component to display the countdown for each launch */}
                         <CountdownTimer
                           targetDate={new Date(
                             launchData.window_start
@@ -200,4 +211,5 @@ const SingleLaunch = () => {
   );
 };
 
+// Export page
 export default SingleLaunch;

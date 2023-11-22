@@ -1,5 +1,6 @@
 import Jumbotron from "../components/Jumbotron";
 
+// Error page
 const Error = () => {
   return (
     <div>
@@ -15,4 +16,5 @@ const Error = () => {
   );
 };
 
+// Export page
 export default Error;

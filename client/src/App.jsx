@@ -5,6 +5,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+
 import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
@@ -12,10 +13,12 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// Create link for GraphQL endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// Create context for JWT token to be recognised for user login and other auth needs
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -26,6 +29,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// Enable apollo client links for apolloProvider
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -40,6 +44,7 @@ function App() {
         <section className="background">
           <Navbar />
           <section className="container">
+            {/* Render the current pages content */}
             <Outlet />
           </section>
           <Footer />

@@ -1,7 +1,9 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+// Import component so that the donation button can be used in this page
 import DonationButton from "../components/DonationButton";
 import "../assets/css/Donation.css";
 
+// Page to implement Stripe payments.
 function Donate() {
   return (
     <>
@@ -26,6 +28,7 @@ function Donate() {
           <Container className="D-ButtonContainer">
             <Row>
               <Col>
+                {/* This element is imported from DonationButton component and uses props */}
                 <DonationButton
                   amount={"5.00"}
                   itemID="price_1OEQrkIUYfXVTgTo6LmttAgk"
@@ -34,6 +37,7 @@ function Donate() {
             </Row>
             <Row>
               <Col>
+                {/* This element is imported from DonationButton component and uses props */}
                 <DonationButton
                   amount={"10.00"}
                   itemID="price_1OETdYIUYfXVTgToTBF1oNId"
@@ -42,6 +46,7 @@ function Donate() {
             </Row>
             <Row>
               <Col>
+                {/* This element is imported from DonationButton component and uses props */}
                 <DonationButton
                   amount={"20.00"}
                   itemID="price_1OETduIUYfXVTgTowVXKmFMR"
@@ -50,6 +55,7 @@ function Donate() {
             </Row>
             <Row>
               <Col>
+                {/* This element is imported from DonationButton component and uses props */}
                 <DonationButton
                   amount={"50.00"}
                   itemID="price_1OETeIIUYfXVTgToH59NAeH7"
@@ -63,4 +69,5 @@ function Donate() {
   );
 }
 
+// Export page
 export default Donate;

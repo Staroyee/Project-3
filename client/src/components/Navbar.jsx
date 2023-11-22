@@ -4,29 +4,37 @@ import Logo from "../assets/images/logo.png"
 import Auth from "../utils/auth";
 import "../assets/css/Navbar.modules.css";
 
+// Define Navbar component
 function Navbar() {
+  // Track is active for navbar burger menu
   const [isActive, setIsActive] = useState(false);
-  const [activeLink, setActiveLink] = useState(""); // New state to track active link
+  // Track is active for nav links
+  const [activeLink, setActiveLink] = useState("");
 
+  // Toggle active for burger menu
   const toggleActiveClass = () => {
     setIsActive(!isActive);
   };
 
+  // Toggle remove active for burger menu
   const removeActive = () => {
     setIsActive(false);
   };
 
+  // Toggle set and remove active for nav links
   const handleLinkClick = (link) => {
     setActiveLink(link);
     removeActive();
   };
 
+  // Define ShowNav component
   function ShowNav() {
     const commonLinkProps = {
       onClick: () => handleLinkClick(""),
       className: "navLink",
     };
 
+    // If logged in return the following
     if (Auth.loggedIn()) {
       return (
         <>
@@ -66,6 +74,7 @@ function Navbar() {
         </>
       );
     } else {
+      // If not logged in return the following
       return (
         <>
           <ul className={`navMenu ${isActive ? "active" : ""}`}>
@@ -95,6 +104,7 @@ function Navbar() {
     }
   }
 
+  // Return Navbar component with nested ShowNav component depending on if the user is logged in or not
   return (
     <div className="App">
       <header className="App-header">
@@ -120,4 +130,5 @@ function Navbar() {
   );
 }
 
+// Export component
 export default Navbar;

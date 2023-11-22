@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// Mutation to create a profile
 export const ADD_PROFILE = gql`
   mutation addProfile($username: String!, $email: String!, $password: String!) {
     addProfile(username: $username, email: $email, password: $password) {
@@ -12,6 +13,7 @@ export const ADD_PROFILE = gql`
   }
 `;
 
+// Mutation to update a users profile
 export const UPDATE_PROFILE = gql`
   mutation updateProfile($username: String, $email: String, $password: String) {
     updateProfile(username: $username, email: $email, password: $password) {
@@ -22,6 +24,7 @@ export const UPDATE_PROFILE = gql`
   }
 `;
 
+// Mutation to log the user in
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -34,6 +37,7 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// Mutation to save a launch to a users profile
 export const SAVE_LAUNCH = gql`
   mutation saveLaunch($launch: LaunchInput!) {
     saveLaunch(launch: $launch) {
@@ -53,6 +57,7 @@ export const SAVE_LAUNCH = gql`
   }
 `;
 
+// Mutation to remove a launch from the users profile
 export const REMOVE_LAUNCH = gql`
   mutation removeLaunch($launchId: ID!) {
     removeLaunch(launchId: $launchId) {

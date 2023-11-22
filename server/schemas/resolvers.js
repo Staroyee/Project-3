@@ -2,21 +2,22 @@ const { Profile } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 const bcrypt = require("bcrypt");
 const axios = require("axios");
-require('dotenv').config();
+require("dotenv").config();
+// Set API key provided by Heroku config var
 const { NASA_API_KEY } = process.env;
 
-console.log('NASA_API_KEY:', NASA_API_KEY);
-
+// Define resolvers
 const resolvers = {
   Query: {
+    // Query all profiles
     profiles: async () => {
       return Profile.find().select("-__v -password");
     },
-
+    // Query single profile
     profile: async (_, { profileId }) => {
       return Profile.findOne({ _id: profileId }).select("-__v -password");
     },
-    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    // Query user profile
     me: async (_, __, context) => {
       if (context.profile) {
         return Profile.findOne({ _id: context.profile._id }).select(
@@ -25,29 +26,32 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-      apod: async () => {
-        try {
-          // Make a request to the NASA APOD API using the API key
-          const response = await axios.get(
-            "https://api.nasa.gov/planetary/apod",
-            {
-              params: {
-                api_key: NASA_API_KEY,
-              },
-            }
-          );
 
-          // Return the APOD API response data
-          return response.data;
-        } catch (error) {
-          // Handle errors
-          console.error("Error:", error.message);
-          throw new Error("Internal Server Error");
-        }
-      },
+    // Query NASA Open api fetch request using Axios
+    apod: async () => {
+      try {
+        // Make a request to the NASA APOD API using the API key
+        const response = await axios.get(
+          "https://api.nasa.gov/planetary/apod",
+          {
+            params: {
+              api_key: NASA_API_KEY,
+            },
+          }
+        );
+
+        // Return the APOD API response data
+        return response.data;
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error.message);
+        throw new Error("Internal Server Error");
+      }
+    },
   },
 
   Mutation: {
+    // Mutation to create a user profile
     addProfile: async (_, { username, email, password }) => {
       const profile = await Profile.create({ username, email, password });
       const token = signToken(profile);
@@ -55,6 +59,7 @@ const resolvers = {
       return { token, profile };
     },
 
+    // Mutation to update a users profile details
     updateProfile: async (_, { username, email, password }, context) => {
       try {
         if (context.profile) {
@@ -76,6 +81,7 @@ const resolvers = {
       }
     },
 
+    // Mutation to log the user in
     login: async (_, { email, password }) => {
       const profile = await Profile.findOne({ email });
       if (!profile) {
@@ -98,6 +104,7 @@ const resolvers = {
       throw AuthenticationError;
     },
 
+    // Mutation to save a single launches data to the database under the current users profile
     saveLaunch: async (_, { launch }, context) => {
       if (context.profile) {
         const updatedProfile = await Profile.findByIdAndUpdate(
@@ -110,6 +117,7 @@ const resolvers = {
       throw AuthenticationError;
     },
 
+    // Mutation to remove the saved launch from the database on the current users profile.
     removeLaunch: async (_, { launchId }, context) => {
       if (context.profile) {
         const updatedProfile = await Profile.findByIdAndUpdate(
@@ -124,4 +132,5 @@ const resolvers = {
   },
 };
 
+// Export resolvers
 module.exports = resolvers;

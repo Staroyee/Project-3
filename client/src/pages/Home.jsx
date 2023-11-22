@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../assets/fonts/nasalization-rg.otf";
 import "../assets/css/Home.css";
 
+// Define home page
 function Home() {
   return (
     <>
@@ -21,4 +22,5 @@ function Home() {
   );
 }
 
+// Export home page
 export default Home;

@@ -1,21 +1,28 @@
 import { useQuery, useMutation } from "@apollo/client";
+// Import Comonents
 import CountdownTimer from "../components/Countdown";
 import DateParser from "../components/DateParser";
-
+import Loading from "../components/Loading";
+// Import Styling
 import { motion } from "framer-motion";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ClearIcon from "@mui/icons-material/Clear";
 import Tooltip from "@mui/material/Tooltip";
 import "../assets/css/SavedLaunches.css";
-
+// Import Queries and Mutations
 import { QUERY_ME } from "../utils/queries";
 import { REMOVE_LAUNCH } from "../utils/mutations";
+// Import Auth
 import Auth from "../utils/auth";
 
+// Define SavedLaunches page
 function SavedLaunches() {
+  // Use query to fetch data
   const { loading, data } = useQuery(QUERY_ME);
+  // Use mutation to remove launch data
   const [removeLaunch] = useMutation(REMOVE_LAUNCH);
 
+  // Function to remove launches from a logged in users profile
   const handleRemoveLaunch = async (launchId) => {
     try {
       await removeLaunch({
@@ -28,8 +35,9 @@ function SavedLaunches() {
     }
   };
 
+  // If loading return loading component
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const { me } = data;
@@ -39,6 +47,7 @@ function SavedLaunches() {
     return <div>You must be logged in to view your saved launches.</div>;
   }
 
+  // Else return page data
   return (
     <>
       <Container>
@@ -105,4 +114,5 @@ function SavedLaunches() {
   );
 }
 
+// Export page
 export default SavedLaunches;

@@ -7,8 +7,10 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+// Enable port to use current environment port or 3001
 const PORT = process.env.PORT || 3001;
 const app = express();
+// Setup Apollo server to be used with typeDefs and resolvers
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -21,6 +23,7 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
+  // Define graphql middleware
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
   }));
@@ -32,7 +35,7 @@ const startApolloServer = async () => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   }
-
+  
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);

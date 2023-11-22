@@ -1,8 +1,9 @@
 const { Schema } = require('mongoose');
 
+// Define Launch Schema for data coming from Launch Library 2 API
 const launchSchema = new Schema({
     launchId: {
-        type: String, // ID saved from Launch Library 2 API
+        type: String,
         required: true,
     },
     name: {
@@ -29,4 +30,5 @@ const launchSchema = new Schema({
     },
 });
 
+// Export Schema
 module.exports = launchSchema;

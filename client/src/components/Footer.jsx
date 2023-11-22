@@ -1,10 +1,11 @@
 // Import necessary components and images.
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
+// Import Styling
 import Navbar from "react-bootstrap/Navbar";
 import "../assets/css/Footer.css";
 
-// Define the 'Footer' component.
+// Define Footer component.
 function Footer() {
   return (
     <>
@@ -30,4 +31,5 @@ function Footer() {
   );
 }
 
+// Export component
 export default Footer;

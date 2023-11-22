@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const launchSchema = require('./Launch')
 
+// Define Profile schema
 const profileSchema = new Schema({
   username: {
     type: String,

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
+// Import pages
 import App from "./App.jsx";
 import Error from "./pages/Error.jsx";
 import Home from "./pages/Home";
@@ -16,6 +17,7 @@ import NasaDailyPic from "./pages/NasaDailyPic.jsx";
 import Donate from "./pages/Donate.jsx";
 import Apis from "./pages/Apis.jsx";
 
+// Setup routes to each page
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +68,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Enable document to be rendered in the HTML document
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
 );

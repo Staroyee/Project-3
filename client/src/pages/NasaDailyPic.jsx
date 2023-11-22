@@ -1,19 +1,27 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+
+// Import Queries
 import { QUERY_APOD } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+
+// Import Components
 import Loading from "../components/Loading";
+
 import "../assets/css/NasaDailyPic.css";
 
+// Define NasaDailyPic page
 function NasaDailyPic() {
+  // Fetch data using query
   const { loading, error, data } = useQuery(QUERY_APOD);
 
+  // Return loading or error if either are true
   if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
 
+  // Else return data and set it as an object called apod
   const { apod } = data;
 
-  console.log(apod);
-
+  // Return page data
   return (
     <>
       <Container className="NDP-Container">
@@ -52,4 +60,5 @@ function NasaDailyPic() {
   );
 }
 
+// Export page
 export default NasaDailyPic;

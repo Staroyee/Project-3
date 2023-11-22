@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 
+// Define component to be able to format the date and time.
 const DateParser = ({ dateString }) => {
   const parseAndFormatDate = (dateString) => {
     const options = {
@@ -15,6 +16,7 @@ const DateParser = ({ dateString }) => {
     return formattedDate;
   };
 
+  // Return component data
   return (
     <>
       {parseAndFormatDate(dateString)}
@@ -22,8 +24,10 @@ const DateParser = ({ dateString }) => {
   );
 };
 
+// Define props
 DateParser.propTypes = {
     dateString: PropTypes.string,
 }
 
+// Export component
 export default DateParser;

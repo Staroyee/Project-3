@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
+// Import components
 import CountdownTimer from "../components/Countdown";
 import DateParser from "../components/DateParser.jsx";
 import Loading from "../components/Loading.jsx";
@@ -14,9 +15,11 @@ import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
 import "../assets/css/Launch.css";
 
+// Import Queries
 import { SAVE_LAUNCH } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
+// Define launch page
 function Launch() {
   const [launchData, setLaunchData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,14 +27,14 @@ function Launch() {
     refetchQueries: [{ query: QUERY_ME }],
   });
 
+  // Run getLaunchData function on page load.
   useEffect(() => {
     getLaunchData();
   }, []);
 
+  // Fetch Launch data using API url
   const getLaunchData = () => {
     let launchUrl = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/";
-    let throttleUrl = "https://ll.thespacedevs.com/2.2.0/api-throttle";
-    fetch(throttleUrl)
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {
@@ -45,21 +48,23 @@ function Launch() {
       });
   };
 
+  // Handle the save launch button to allow launch data to be saved to the logged in users profile
   const handleSaveLaunch = async (launchId) => {
     const launchToSave = launchData.find((launch) => launch.id === launchId);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
+    // If not logged in return false
     if (!token) {
       return false;
     }
-
+    // Define data to save from the object data
     try {
       await saveLaunch({
         variables: {
           launch: {
             launchId: launchToSave.id,
             name: launchToSave.name,
-            status: launchToSave.status.abbrev, // Assuming status is an object with an abbrev property
+            status: launchToSave.status.abbrev,
             provider: launchToSave.launch_service_provider.name,
             location: launchToSave.location,
             date: launchToSave.window_start,
@@ -77,12 +82,14 @@ function Launch() {
 
   return (
     <>
+    {/* If loading return loading component */}
       {loading ? (
         <>
           <Loading />
         </>
       ) : (
         <>
+        {/* If loaded return page data */}
           <Container>
             <h1 className="L-Title">Launches</h1>
             <Row>
@@ -179,4 +186,5 @@ function Launch() {
   );
 }
 
+// Export page
 export default Launch;

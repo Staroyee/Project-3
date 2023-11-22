@@ -1,5 +1,6 @@
 const { Schema } = require('mongoose');
 
+// Define Schema for data coming from NASA Open API for astronomy picture of the day
 const apodSchema = new Schema({
   copyright: {
     type: String,
@@ -34,4 +35,5 @@ const apodSchema = new Schema({
   },
 });
 
+// Export Schema
 module.exports = apodSchema;

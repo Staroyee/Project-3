@@ -1,6 +1,8 @@
+// Import styling
 import { Container, Row, Col } from "react-bootstrap";
 import { Triangle } from "react-loader-spinner";
 
+// Define Loading Component
 function Loading() {
   return (
     <>
@@ -16,4 +18,5 @@ function Loading() {
   );
 }
 
+// Export component
 export default Loading;
