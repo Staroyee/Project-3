@@ -3,7 +3,7 @@
 ## Overview
 Skyward is an online space community and information center. Users can sign up, view rocket launches, save launches to favourites, view the NASA Astronomy Picture of the Day, and donate to keep the site up and running.
 
-![alt text](./public/images/homepage.jpg)
+![alt text](./public/images/homepage.JPG)
 
 ## Heroku Deployed App
 https://skyward-project-57c549ccb969.herokuapp.com/
