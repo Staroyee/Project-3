@@ -62,7 +62,7 @@ const LoginForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your login credentials!
+          Incorrect Email or Password!
         </Alert>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="email">Email</Form.Label>
