@@ -1,9 +1,9 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
-import "../assets/css/LoginSignup.css";
+import "./LoginSignup.css";
 
 // Import components
-import LoginForm from "../components/LoginForm";
-import SignupForm from "../components/SignupForm";
+import LoginForm from "../../components/LoginForm/LoginForm.jsx";
+import SignupForm from "../../components/SignupForm/SignupForm.jsx";
 
 // Define LoginSignup page
 const LoginSignup = () => {

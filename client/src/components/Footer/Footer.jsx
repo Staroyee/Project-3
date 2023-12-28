@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 // Import Styling
 import Navbar from "react-bootstrap/Navbar";
-import "../assets/css/Footer.css";
+import "./Footer.css";
 
 // Define Footer component.
 function Footer() {

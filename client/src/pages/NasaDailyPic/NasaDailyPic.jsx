@@ -1,13 +1,13 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 // Import Queries
-import { QUERY_APOD } from "../utils/queries";
+import { QUERY_APOD } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
 // Import Components
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading/Loading.jsx";
 
-import "../assets/css/NasaDailyPic.css";
+import "./NasaDailyPic.css";
 
 // Define NasaDailyPic page
 function NasaDailyPic() {

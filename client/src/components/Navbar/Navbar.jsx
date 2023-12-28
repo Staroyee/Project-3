@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/images/logo.png"
-import Auth from "../utils/auth";
-import "../assets/css/Navbar.modules.css";
+import Logo from "../../assets/images/logo.png"
+import Auth from "../../utils/auth";
+import "./Navbar.modules.css";
 
 // Define Navbar component
 function Navbar() {

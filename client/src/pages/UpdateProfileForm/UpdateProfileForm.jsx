@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 // Import Mutations
-import { UPDATE_PROFILE } from "../utils/mutations";
+import { UPDATE_PROFILE } from "../../utils/mutations";
 // Import Styling
 import { Container, Row, Col, Form } from "react-bootstrap";
-import "../assets/css/UpdateProfileForm.css"
+import "./UpdateProfileForm.css"
 
 // Define UpdateProfileForm page
 const UpdateProfileForm = () => {

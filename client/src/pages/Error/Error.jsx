@@ -1,4 +1,4 @@
-import Jumbotron from "../components/Jumbotron";
+import Jumbotron from "../../components/Jumbotron/Jumbotron.jsx";
 
 // Error page
 const Error = () => {

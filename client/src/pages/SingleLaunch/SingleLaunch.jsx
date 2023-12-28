@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth.js";
 // Import Components
-import CountdownTimer from "../components/Countdown";
-import DateParser from "../components/DateParser.jsx";
-import Loading from "../components/Loading.jsx";
+import CountdownTimer from "../../components/Countdown/Countdown.jsx";
+import DateParser from "../../components/DateParser/DateParser.jsx";
+import Loading from "../../components/Loading/Loading.jsx";
 // Import Styling
 import { Container, Row, Col, Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
 import Tooltip from "@mui/material/Tooltip";
-import "../assets/css/SingleLaunch.css";
+import "./SingleLaunch.css";
 // Import queries and mutations
-import { SAVE_LAUNCH } from "../utils/mutations";
-import { QUERY_ME } from "../utils/queries";
+import { SAVE_LAUNCH } from "../../utils/mutations.js";
+import { QUERY_ME } from "../../utils/queries.js";
 
 // Define SingleLaunch page
 const SingleLaunch = () => {

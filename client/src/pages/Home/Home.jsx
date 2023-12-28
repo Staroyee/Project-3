@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
-import "../assets/fonts/nasalization-rg.otf";
-import "../assets/css/Home.css";
+import "../../assets/fonts/nasalization-rg.otf";
+import "./Home.css";
 
 // Define home page
 function Home() {

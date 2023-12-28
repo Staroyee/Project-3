@@ -1,5 +1,5 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
-import "../assets/css/Apis.css"
+import "./Apis.css"
 
 // Render the page to display the information about API usage
 function Apis() {

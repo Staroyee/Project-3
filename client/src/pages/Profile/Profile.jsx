@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 // Import Query
-import { QUERY_ME } from "../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 // Import Auth
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 // Import Comonents
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading/Loading.jsx";
 // Import Styling
 import { Container, Row, Col } from "react-bootstrap";
-import "../assets/css/Profile.css";
+import "./Profile.css";
 
 
 // Define Profile page

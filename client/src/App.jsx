@@ -10,8 +10,8 @@ import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 // Create link for GraphQL endpoint
 const httpLink = createHttpLink({

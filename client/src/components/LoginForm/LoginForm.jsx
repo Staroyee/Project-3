@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
 
-import Auth from "../utils/auth"; // Import the authentication utility
+import Auth from "../../utils/auth"; // Import the authentication utility
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations"; // Import the login mutation
+import { LOGIN_USER } from "../../utils/mutations"; // Import the login mutation
 
 const LoginForm = () => {
   // Initialize state variables

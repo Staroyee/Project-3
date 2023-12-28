@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
-import { ADD_PROFILE } from "../utils/mutations";
+import { ADD_PROFILE } from "../../utils/mutations";
 
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 
 const SignupForm = () => {
   // Set initial form state
@@ -28,12 +28,15 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // Check if the form has everything (as per react-bootstrap docs)
+    // Check if the form has everything
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+
+    console.log("User Form Data:", userFormData);
+    
     try {
       // Send a request to the addUser mutation with userFormData
       const { data } = await addUser({
@@ -60,7 +63,7 @@ const SignupForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          Please enter a valid  Username, Email, and Password
         </Alert>
 
         <Form.Group className="mb-3">
@@ -86,6 +89,7 @@ const SignupForm = () => {
             type="email"
             placeholder="email"
             name="email"
+            autoComplete="email"
             onChange={handleInputChange}
             value={userFormData.email}
             required
@@ -102,6 +106,7 @@ const SignupForm = () => {
             type="password"
             placeholder="password"
             name="password"
+            autoComplete="current-password"
             onChange={handleInputChange}
             value={userFormData.password}
             required

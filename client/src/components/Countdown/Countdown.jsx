@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 // Import Styling
 import { Row, Col } from "react-bootstrap";
-import "../assets/css/Countdown.css";
+import "./Countdown.css";
 
 // Define CountdownTimer component
 const CountdownTimer = ({ targetDate }) => {

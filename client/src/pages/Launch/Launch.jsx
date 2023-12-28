@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth.js";
 
 // Import components
-import CountdownTimer from "../components/Countdown";
-import DateParser from "../components/DateParser.jsx";
-import Loading from "../components/Loading.jsx";
+import CountdownTimer from "../../components/Countdown/Countdown.jsx";
+import DateParser from "../../components/DateParser/DateParser.jsx";
+import Loading from "../../components/Loading/Loading.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
-import "../assets/css/Launch.css";
+import "./Launch.css";
 
 // Import Queries
-import { SAVE_LAUNCH } from "../utils/mutations";
-import { QUERY_ME } from "../utils/queries";
+import { SAVE_LAUNCH } from "../../utils/mutations.js";
+import { QUERY_ME } from "../../utils/queries.js";
 
 // Define launch page
 function Launch() {

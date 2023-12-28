@@ -1,21 +1,20 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
 
 // Import pages
 import App from "./App.jsx";
-import Error from "./pages/Error.jsx";
-import Home from "./pages/Home";
-import LoginSignup from "./pages/LoginSignup";
-import Profile from "./pages/Profile";
-import Launch from "./pages/Launch";
-import SavedLaunches from "./pages/SavedLaunches.jsx";
-import SingleLaunch from "./pages/SingleLaunch.jsx";
-import UpdateProfileForm from "./pages/UpdateProfileForm.jsx";
-import NasaDailyPic from "./pages/NasaDailyPic.jsx";
-import Donate from "./pages/Donate.jsx";
-import Apis from "./pages/Apis.jsx";
+import Error from "./pages/Error/Error.jsx";
+import Home from "./pages/Home/Home.jsx";
+import LoginSignup from "./pages/LoginSignup/LoginSignup.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import Launch from "./pages/Launch/Launch.jsx";
+import SavedLaunches from "./pages/SavedLaunches/SavedLaunches.jsx";
+import SingleLaunch from "./pages/SingleLaunch/SingleLaunch.jsx";
+import UpdateProfileForm from "./pages/UpdateProfileForm/UpdateProfileForm.jsx";
+import NasaDailyPic from "./pages/NasaDailyPic/NasaDailyPic.jsx";
+import Donate from "./pages/Donate/Donate.jsx";
+import Apis from "./pages/Apis/Apis.jsx";
 
 // Setup routes to each page
 const router = createBrowserRouter([

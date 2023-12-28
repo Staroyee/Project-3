@@ -1,6 +1,6 @@
 @font-face {
   font-family: "nasalization";
-  src: local("nasalization"), url("../fonts/nasalization-rg.otf") format("woff");
+  src: local("nasalization"), url("../../assets/fonts/nasalization-rg.otf") format("woff");
 }
 
 .H-Title {
