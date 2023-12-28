@@ -21,9 +21,12 @@ const SignupForm = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    // Update the userFormData state with the changed input value
-    setUserFormData({ ...userFormData, [name]: value });
-  };
+  // Update the userFormData state with the changed input value
+  setUserFormData((prevData) => ({
+    ...prevData,
+    [name]: value,
+  }));
+};
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -36,6 +39,12 @@ const SignupForm = () => {
     }
 
     console.log("User Form Data:", userFormData);
+
+    if (!userFormData.username || !userFormData.email || !userFormData.password) {
+      console.error("Null or undefined values found in form data.");
+      setShowAlert(true);
+      return;
+    }
     
     try {
       // Send a request to the addUser mutation with userFormData
@@ -43,9 +52,13 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       // If signup is successful, store the user's token in local storage using the Auth utility
+      console.log('Mutation Result:', data);
       Auth.login(data.addProfile.token);
     } catch (err) {
       console.error(err);
+      if (err.graphQLErrors) {
+        console.error('GraphQL Errors:', err.graphQLErrors);
+      }
       // Display an alert if signup fails
       setShowAlert(true);
     }
