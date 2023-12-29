@@ -7,6 +7,7 @@ import Auth from "../../utils/auth.js";
 import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
+import Button from "../../components/Button/Button.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -38,7 +39,7 @@ function Launch() {
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response.results)
+        console.log(response.results);
         setLaunchData(response.results);
         setLoading(false);
       })
@@ -82,16 +83,31 @@ function Launch() {
 
   return (
     <>
-    {/* If loading return loading component */}
+      {/* If loading return loading component */}
       {loading ? (
         <>
           <Loading />
         </>
       ) : (
         <>
-        {/* If loaded return page data */}
+          {/* If loaded return page data */}
           <Container>
-            <h1 className="L-Title">Launches</h1>
+            <svg
+              height="100"
+              stroke="#072448"
+              strokeWidth="1.25"
+              className="text-line L-Title"
+              width="100%"
+            >
+              <text
+                x="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                y="50%"
+              >
+                LAUNCHES
+              </text>
+            </svg>
             <Row>
               <Col>
                 {launchData.length > 0 &&
@@ -135,37 +151,30 @@ function Launch() {
                                       ).getTime()}
                                     />
                                     <Row className="L-ButtonContainer">
-                                      <button className="L-Button">
-                                        {launch.webcast_live ? (
-                                          <>WATCH LIVE</>
-                                        ) : (
-                                          "NO LIVESTREAM"
-                                        )}
-                                      </button>
-                                      <Tooltip
-                                        title="Info"
-                                        arrow
-                                        placement="right"
-                                      >
-                                        <Link to={`/launch/${launch.id}`}>
-                                          <button className="L-Button">
-                                            <InfoIcon />
-                                          </button>
-                                        </Link>
-                                      </Tooltip>
+                                      
+                                
+                                      <Button
+                                        value={`${
+                                          launch.webcast_live
+                                            ? "WATCH LIVE"
+                                            : "NO LIVESTREAM"
+                                        }`}
+                                      />
+
+                                      <Link to={`/launch/${launch.id}`}>
+                                        <Button value={<InfoIcon />} />
+                                      </Link>
                                       <Tooltip
                                         title="Save"
                                         arrow
                                         placement="right"
                                       >
-                                        <button
+                                        <Button
+                                          value={<AddIcon />}
                                           onClick={() =>
                                             handleSaveLaunch(launch.id)
                                           }
-                                          className="L-Button"
-                                        >
-                                          <AddIcon />
-                                        </button>
+                                        />
                                       </Tooltip>
                                     </Row>
                                   </Card.Body>

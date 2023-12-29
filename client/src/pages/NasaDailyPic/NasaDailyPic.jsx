@@ -25,7 +25,22 @@ function NasaDailyPic() {
   return (
     <>
       <Container className="NDP-Container">
-        <h1 className="NDP-CardTitle">Astronomy Picture of the Day</h1>
+      <svg
+              height="100"
+              stroke="#072448"
+              strokeWidth="1.25"
+              className="text-line"
+              width="100%"
+            >
+              <text
+                x="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                y="50%"
+              >
+                APOD
+              </text>
+            </svg>
         <Card className="NDP-Card">
           <Row>
             <Col>

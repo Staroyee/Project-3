@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PROFILE } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
+import Button from "../Button/Button";
 
 const SignupForm = () => {
   // Set initial form state
@@ -21,12 +22,12 @@ const SignupForm = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-  // Update the userFormData state with the changed input value
-  setUserFormData((prevData) => ({
-    ...prevData,
-    [name]: value,
-  }));
-};
+    // Update the userFormData state with the changed input value
+    setUserFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -40,24 +41,28 @@ const SignupForm = () => {
 
     console.log("User Form Data:", userFormData);
 
-    if (!userFormData.username || !userFormData.email || !userFormData.password) {
+    if (
+      !userFormData.username ||
+      !userFormData.email ||
+      !userFormData.password
+    ) {
       console.error("Null or undefined values found in form data.");
       setShowAlert(true);
       return;
     }
-    
+
     try {
       // Send a request to the addUser mutation with userFormData
       const { data } = await addUser({
         variables: { ...userFormData },
       });
       // If signup is successful, store the user's token in local storage using the Auth utility
-      console.log('Mutation Result:', data);
+      console.log("Mutation Result:", data);
       Auth.login(data.addProfile.token);
     } catch (err) {
       console.error(err);
       if (err.graphQLErrors) {
-        console.error('GraphQL Errors:', err.graphQLErrors);
+        console.error("GraphQL Errors:", err.graphQLErrors);
       }
       // Display an alert if signup fails
       setShowAlert(true);
@@ -66,7 +71,17 @@ const SignupForm = () => {
 
   return (
     <>
-      <h1 className="LS-SignupTitle">Signup</h1>
+      <svg
+        height="100"
+        stroke="#072448"
+        strokeWidth="1.25"
+        className="LS-text-line LS-SignupTitle"
+        width="100%"
+      >
+        <text x="50%" dominantBaseline="middle" textAnchor="middle" y="50%">
+          SIGNUP
+        </text>
+      </svg>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* Show an alert if there's an issue with the signup */}
@@ -76,7 +91,7 @@ const SignupForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Please enter a valid  Username, Email, and Password
+          Please enter a valid Username, Email, and Password
         </Alert>
 
         <Form.Group className="mb-3">
@@ -128,20 +143,14 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-
-        <button
-          className="LS-Button"
-          disabled={
+        <Button value="Signup" disabled={
             !(
               userFormData.username &&
               userFormData.email &&
               userFormData.password
             )
           }
-          type="submit"
-        >
-          Signup
-        </button>
+          type="submit" />
       </Form>
     </>
   );

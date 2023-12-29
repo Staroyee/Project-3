@@ -1,4 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
+import PropTypes from "prop-types";
 
 // Stripe public key which does not need to be kept secret
 const stripePromise = loadStripe(
@@ -38,6 +39,11 @@ const DonationButton = ({ itemID, amount }) => {
       </button>
     </>
   );
+};
+
+DonationButton.propTypes = {
+  itemID: PropTypes.string,
+  amount: PropTypes.string,
 };
 
 // Export component

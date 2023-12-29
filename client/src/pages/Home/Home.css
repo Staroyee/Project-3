@@ -45,20 +45,6 @@
   color: #072448;
 }
 
-.text-line {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: dash 3s linear forwards, filling 3s ease-in forwards;
-  font-size: 90px;
-}
-
-.text-line text {
-  font-size: 90px;
-  font-family: nasalization;
-  font-weight: normal;
-  font-style: normal;
-}
-
 @keyframes dash {
   to {
     stroke-dashoffset: 0;

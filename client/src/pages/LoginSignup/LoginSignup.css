@@ -9,22 +9,23 @@
 }
 
 .LS-LoginTitle {
-    padding: 10px 0px;
-    border-bottom: solid 2px #ffd700;
+  padding: 10px 0px;
+  border-bottom: solid 2px #ffd700;
 }
 
 .LS-SignupTitle {
-    padding: 10px 0px;
-    border-bottom: solid 2px #ffd700;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: solid 2px #ffd700;
 }
 
 .formContainer {
   color: #001f3f;
-  text-align: left;
+  text-align: middle;
 }
 
 .formInput {
-    border-radius: 20px;
+  border-radius: 20px;
   border: #001f3f;
   background-color: #001f3f;
   color: #ffffff;
@@ -41,27 +42,23 @@
   color: rgb(250, 250, 250);
 }
 
-.LS-Button {
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
-  margin: 5px;
-  padding: 3px;
-  width: 180px;
-  background-color: #072448;
-  border: #072448;
-  color: #ffd700;
-  border-radius: 15px;
-  transition: background-color 0.3s ease;
+.LS-text-line {
+  stroke-dasharray: 550;
+  stroke-dashoffset: 500;
+  animation: dash 3s linear forwards, filling 3s ease-in forwards;
+  font-size: 90px;
 }
 
-.LS-Button:hover {
-  cursor: pointer;
-  background-color: #ffd700;
-  color: #072448;
+.LS-text-line text {
+  font-size: 40px;
+  font-family: nasalization;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @media screen and (max-width: 767.98px) {
-    .LS-LoginTitle {
-        padding: 70px 0px 10px 0px;
-        border-bottom: solid 2px #ffd700;
-    }
+  .LS-LoginTitle {
+    padding: 70px 0px 10px 0px;
+    border-bottom: solid 2px #ffd700;
+  }
 }

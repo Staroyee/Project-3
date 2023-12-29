@@ -14,7 +14,7 @@ a {
 }
 
 .background {
-  background-color: #FFFFF0;
+  background-color: #fffff0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -23,5 +23,20 @@ a {
 }
 
 .container {
-    flex-grow: 1;
+  flex-grow: 1;
+}
+
+/* CSS For title styling/animations */
+.text-line {
+  stroke-dasharray: 550;
+  stroke-dashoffset: 500;
+  animation: dash 3s linear forwards, filling 3s ease-in forwards;
+  font-size: 90px;
+}
+
+.text-line text {
+  font-size: 90px;
+  font-family: nasalization;
+  font-weight: normal;
+  font-style: normal;
 }

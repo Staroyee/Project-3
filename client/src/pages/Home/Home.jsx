@@ -14,7 +14,7 @@ function Home() {
             <svg
               height="100"
               stroke="#072448"
-              strokeWidth="1.5"
+              strokeWidth="1.25"
               className="text-line"
               width="100%"
             >
@@ -26,7 +26,6 @@ function Home() {
               >
                 SKYWARD
               </text>
-              <h1 className="H-Title">SKYWARD</h1>
             </svg>
 
             <h3 className="H-Info">
