@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PROFILE } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
-import Button from "../Button/Button";
+import Button from "../Buttons/Button.jsx";
 
 const SignupForm = () => {
   // Set initial form state

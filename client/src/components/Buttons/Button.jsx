@@ -15,7 +15,7 @@ function Button({ value }) {
 }
 
 Button.propTypes = {
-    value: PropTypes.string
+    value: PropTypes.object
 }
 
 export default Button;

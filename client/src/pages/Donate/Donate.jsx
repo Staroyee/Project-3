@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 // Import component so that the donation button can be used in this page
-import DonationButton from "../../components/DonationButton/DonationButton.jsx";
+import DonationButton from "../../components/Buttons/DonationButton.jsx";
 import "./Donate.css";
 
 // Page to implement Stripe payments.

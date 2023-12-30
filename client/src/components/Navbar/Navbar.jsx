@@ -1,15 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/images/logo.png"
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Logo from "../../assets/images/logo.png";
 import Auth from "../../utils/auth";
+import NavButton from "../../components/Buttons/NavButton.jsx";
 import "./Navbar.modules.css";
 
 // Define Navbar component
 function Navbar() {
+  const location = useLocation();
   // Track is active for navbar burger menu
   const [isActive, setIsActive] = useState(false);
   // Track is active for nav links
   const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+    console.log(location.pathname)
+  }, [location.pathname])
 
   // Toggle active for burger menu
   const toggleActiveClass = () => {
@@ -40,34 +47,79 @@ function Navbar() {
         <>
           <ul className={`navMenu ${isActive ? "active" : ""}`}>
             <li onClick={() => handleLinkClick("home")}>
-              <Link to="/" {...commonLinkProps} style={{ opacity: activeLink === "home" ? 1 : 0.6 }}>
-                Home
+              <Link to="/" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Home"}
+                  valueTwo={"Home"}
+                  style={{
+                    background: activeLink === "/" ? "#ffd700" : "#072448",
+                    color: activeLink === "/" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("launches")}>
-              <Link to="/launches" {...commonLinkProps} style={{ opacity: activeLink === "launches" ? 1 : 0.6 }}>
-                Launches
+            <li onClick={() => handleLinkClick("/launches")}>
+              <Link to="/launches" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Launches"}
+                  valueTwo={"Launches"}
+                  style={{
+                    background:
+                      activeLink === "/launches" ? "#ffd700" : "#072448",
+                    color: activeLink === "/launches" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("picture-of-the-day")}>
-              <Link to="/picture-of-the-day" {...commonLinkProps} style={{ opacity: activeLink === "picture-of-the-day" ? 1 : 0.6 }}>
-              APOD
+            <li onClick={() => handleLinkClick("/picture-of-the-day")}>
+              <Link to="/picture-of-the-day" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"APOD"}
+                  valueTwo={"APOD"}
+                  style={{
+                    background:
+                      activeLink === "/picture-of-the-day"
+                        ? "#ffd700"
+                        : "#072448",
+                    color:
+                      activeLink === "/picture-of-the-day"
+                        ? "#072448"
+                        : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("saved-launches")}>
-              <Link to="/saved-launches" {...commonLinkProps} style={{ opacity: activeLink === "saved-launches" ? 1 : 0.6 }}>
-                Saved Launches
+            <li onClick={() => handleLinkClick("/saved-launches")}>
+              <Link to="/saved-launches" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Saved Launches"}
+                  valueTwo={"Saved Launches"}
+                  style={{
+                    background:
+                      activeLink === "/saved-launches" ? "#ffd700" : "#072448",
+                    color:
+                      activeLink === "/saved-launches" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("profile")}>
-              <Link to="/profile" {...commonLinkProps} style={{ opacity: activeLink === "profile" ? 1 : 0.6 }}>
-                Profile
+            <li onClick={() => handleLinkClick("/profile")}>
+              <Link to="/profile" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Profile"}
+                  valueTwo={"Profile"}
+                  style={{
+                    background:
+                      activeLink === "/profile" ? "#ffd700" : "#072448",
+                    color: activeLink === "/profile" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
 
             <li>
-              <a href="/" onClick={() => Auth.logout()} className="navLink">
-                Logout
+              <a href="/" onClick={() => Auth.logout()}>
+                <NavButton valueOne={"Logout"} valueTwo={"Logout"} />
               </a>
             </li>
           </ul>
@@ -78,24 +130,61 @@ function Navbar() {
       return (
         <>
           <ul className={`navMenu ${isActive ? "active" : ""}`}>
-            <li onClick={() => handleLinkClick("home")}>
-              <Link to="/" {...commonLinkProps} style={{ opacity: activeLink === "home" ? 1 : 0.6 }}>
-                Home
+            <li onClick={() => handleLinkClick("/")}>
+              <Link to="/" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Home"}
+                  valueTwo={"Home"}
+                  style={{
+                    background: activeLink === "/" ? "#ffd700" : "#072448",
+                    color: activeLink === "/" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("launches")}>
-              <Link to="/launches" {...commonLinkProps} style={{ opacity: activeLink === "launches" ? 1 : 0.6 }}>
-                Launches
+            <li onClick={() => handleLinkClick("/launches")}>
+              <Link to="/launches" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Launches"}
+                  valueTwo={"Launches"}
+                  style={{
+                    background:
+                      activeLink === "/launches" ? "#ffd700" : "#072448",
+                    color: activeLink === "/launches" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("picture-of-the-day")}>
-              <Link to="/picture-of-the-day" {...commonLinkProps} style={{ opacity: activeLink === "picture-of-the-day" ? 1 : 0.6 }}>
-              APOD
+            <li onClick={() => handleLinkClick("/picture-of-the-day")}>
+              <Link to="/picture-of-the-day">
+                <NavButton
+                  valueOne={"APOD"}
+                  valueTwo={"APOD"}
+                  style={{
+                    background:
+                      activeLink === "/picture-of-the-day"
+                        ? "#ffd700"
+                        : "#072448",
+                    color:
+                      activeLink === "/picture-of-the-day"
+                        ? "#072448"
+                        : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
-            <li onClick={() => handleLinkClick("login-signup")}>
-              <Link to="/login-signup" {...commonLinkProps} style={{ opacity: activeLink === "login-signup" ? 1 : 0.6 }}>
-                Login/Signup
+            <li onClick={() => handleLinkClick("/login-signup")}>
+              <Link to="/login-signup" {...commonLinkProps}>
+                <NavButton
+                  valueOne={"Login/Signup"}
+                  valueTwo={"Login/Signup"}
+                  style={{
+                    background:
+                      activeLink === "/login-signup" ? "#ffd700" : "#072448",
+                    color:
+                      activeLink === "/login-signup" ? "#072448" : "#ffd700",
+                  }}
+                />
               </Link>
             </li>
           </ul>
@@ -110,10 +199,7 @@ function Navbar() {
       <header className="App-header">
         <nav className={`navBar`}>
           <Link to="/">
-          <img className={`logo`}
-            src={Logo}
-            alt="Logo"
-          />
+            <img className={`logo`} src={Logo} alt="Logo" />
           </Link>
           {ShowNav()}
           <div

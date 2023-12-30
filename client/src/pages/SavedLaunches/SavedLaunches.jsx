@@ -41,10 +41,12 @@ function SavedLaunches() {
   }
 
   const { me } = data;
-
+  console.log(data);
   // Check if the user is logged in
   if (!Auth.loggedIn()) {
     return <div>You must be logged in to view your saved launches.</div>;
+  } else if (me.savedLaunches.length === 0) {
+    return <p>No Saved Launches</p>;
   }
 
   // Else return page data

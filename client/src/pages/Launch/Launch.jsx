@@ -7,7 +7,7 @@ import Auth from "../../utils/auth.js";
 import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
-import Button from "../../components/Button/Button.jsx";
+import Button from "../../components/Buttons/Button.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";

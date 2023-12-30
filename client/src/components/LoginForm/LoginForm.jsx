@@ -1,7 +1,7 @@
 // Import necessary dependencies and components
 import { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
-import Button from "../Button/Button";
+import Button from "../Buttons/Button.jsx";
 
 import Auth from "../../utils/auth"; // Import the authentication utility
 import { useMutation } from "@apollo/client";
