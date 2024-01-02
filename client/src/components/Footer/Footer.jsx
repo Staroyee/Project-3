@@ -13,7 +13,7 @@ function Footer() {
         <Container>
           {/* Create links to social media profiles with respective icons. */}
           <Link
-            href="https://github.com/Staroyee"
+            to="https://github.com/Staroyee"
             rel="noreferrer"
             target="_blank"
           >
