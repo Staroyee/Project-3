@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types"
-import "./button.css"
+import "./Button.css"
 
 function Button({ value }) {
   return (
