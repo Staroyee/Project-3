@@ -14,6 +14,7 @@ import { QUERY_ME } from "../../utils/queries";
 import { REMOVE_LAUNCH } from "../../utils/mutations";
 // Import Auth
 import Auth from "../../utils/auth";
+import Button from "../../components/Buttons/Button.jsx";
 
 // Define SavedLaunches page
 function SavedLaunches() {
@@ -46,7 +47,21 @@ function SavedLaunches() {
   if (!Auth.loggedIn()) {
     return <div>You must be logged in to view your saved launches.</div>;
   } else if (me.savedLaunches.length === 0) {
-    return <p>No Saved Launches</p>;
+    return (
+      <>
+        <svg
+          height="100"
+          stroke="#072448"
+          strokeWidth="1.25"
+          className="SVL-text-line"
+          width="100%"
+        >
+          <text x="50%" dominantBaseline="middle" textAnchor="middle" y="50%">
+            NO SAVED LAUNCHES
+          </text>
+        </svg>
+      </>
+    );
   }
 
   // Else return page data
@@ -89,18 +104,15 @@ function SavedLaunches() {
                           <CountdownTimer
                             targetDate={new Date(launch.date).getTime()}
                           />
-                          <Row className="SVL-ButtonContainer">
-                            <button className="SVL-Button">WATCH LIVE</button>
-                          </Row>
                           <Tooltip title="Remove" arrow placement="right">
-                            <button
-                              className="SVL-Button"
+                            <Button
+                              value={<ClearIcon />}
                               onClick={() =>
                                 handleRemoveLaunch(launch.launchId)
                               }
                             >
                               <ClearIcon />
-                            </button>
+                            </Button>
                           </Tooltip>
                         </Card.Body>
                       </Col>

@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import "./Button.css";
 
-function Button({ value }) {
+function SaveButton({ value, onClick }) {
   return (
     <motion.button
       data-testid="btn"
+      onClick={onClick}
       className="button"
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -15,11 +16,13 @@ function Button({ value }) {
   );
 }
 
-Button.propTypes = {
-  value: PropTypes.oneOfType([
+SaveButton.propTypes = {
+    onClick: PropTypes.func,
+    value: PropTypes.oneOfType([
     PropTypes.string, // Allow strings
     PropTypes.object, // Allow objects
   ]),
+  
 };
 
-export default Button;
+export default SaveButton;

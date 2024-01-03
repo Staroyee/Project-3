@@ -41,6 +41,7 @@ const DonationButton = ({ itemID, amount }) => {
   );
 };
 
+// Define prop types
 DonationButton.propTypes = {
   itemID: PropTypes.string,
   amount: PropTypes.string,

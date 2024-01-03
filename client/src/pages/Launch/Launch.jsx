@@ -8,12 +8,12 @@ import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
 import Button from "../../components/Buttons/Button.jsx";
+import SaveButton from "../../components/Buttons/SaveButton.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
-import Tooltip from "@mui/material/Tooltip";
 import "./Launch.css";
 
 // Import Queries
@@ -151,31 +151,15 @@ function Launch() {
                                       ).getTime()}
                                     />
                                     <Row className="L-ButtonContainer">
-                                      
-                                
-                                      <Button
-                                        value={`${
-                                          launch.webcast_live
-                                            ? "WATCH LIVE"
-                                            : "NO LIVESTREAM"
-                                        }`}
-                                      />
-
                                       <Link to={`/launch/${launch.id}`}>
                                         <Button value={<InfoIcon />} />
                                       </Link>
-                                      <Tooltip
-                                        title="Save"
-                                        arrow
-                                        placement="right"
-                                      >
-                                        <Button
-                                          value={<AddIcon />}
-                                          onClick={() =>
-                                            handleSaveLaunch(launch.id)
-                                          }
-                                        />
-                                      </Tooltip>
+                                      <SaveButton
+                                        value={<AddIcon />}
+                                        onClick={() =>
+                                          handleSaveLaunch(launch.id)
+                                        }
+                                      />
                                     </Row>
                                   </Card.Body>
                                 </Col>
