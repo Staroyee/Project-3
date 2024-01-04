@@ -34,7 +34,7 @@ const DonationButton = ({ itemID, amount }) => {
   return (
     <>
       {" "}
-      <button className="D-Button" onClick={handleClick}>
+      <button data-testid="btn" className="D-Button" onClick={handleClick}>
         Donate {amount}$
       </button>
     </>
