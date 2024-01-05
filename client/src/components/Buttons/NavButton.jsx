@@ -4,9 +4,11 @@ import "./NavButton.css";
 function NavButton({ valueOne, valueTwo, style }) {
   return (
     <>
-      <button className="button-57" style={style}>
-        <span className="text">{valueOne}</span>
-        <span>{valueTwo}</span>
+      <button data-testid="btn" className="button-57" style={style}>
+        <span data-testid="span1" className="text">
+          {valueOne}
+        </span>
+        <span data-testid="span2">{valueTwo}</span>
       </button>
     </>
   );
