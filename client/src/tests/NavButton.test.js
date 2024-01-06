@@ -3,7 +3,7 @@ import NavButton from "../components/Buttons/NavButton";
 
 // Initialise the test
 describe("NavButton", () => {
-    // Define the requirements of the test
+  // Define the requirements of the test
   it("takes in a style prop and renders the applied style", () => {
     // Assign a background to the styleProp variable
     const styleProp = { background: "rgb(255, 215, 0)" };
