@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import NavButton from "../components/Buttons/NavButton";
+import NavButton from "../../components/Buttons/NavButton";
 
 // Initialise the test
 describe("NavButton", () => {

@@ -5,7 +5,7 @@ import Auth from "../../utils/auth.js";
 
 // Import components
 import CountdownTimer from "../../components/Countdown/Countdown.jsx";
-import DateParser from "../../components/DateParser/DateParser.jsx";
+import DateParser from "../../components/DateParser/dateParser.js";
 import Loading from "../../components/Loading/Loading.jsx";
 import Button from "../../components/Buttons/Button.jsx";
 import SaveButton from "../../components/Buttons/SaveButton.jsx";

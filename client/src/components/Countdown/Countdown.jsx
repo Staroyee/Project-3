@@ -31,7 +31,7 @@ const CountdownTimer = ({ targetDate }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  });
 
   // Assign time to is past target date
   const isPastTargetDate = targetDate < new Date().getTime();
@@ -44,7 +44,7 @@ const CountdownTimer = ({ targetDate }) => {
   // Else return component data
   return (
     <>
-      <Row>
+      <Row data-testid="countdown">
         <Col>
           <h2 className="C-H2">T-</h2>
         </Col>

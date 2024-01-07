@@ -17,12 +17,11 @@ function SaveButton({ value, onClick }) {
 }
 
 SaveButton.propTypes = {
-    onClick: PropTypes.func,
-    value: PropTypes.oneOfType([
+  onClick: PropTypes.func,
+  value: PropTypes.oneOfType([
     PropTypes.string, // Allow strings
     PropTypes.object, // Allow objects
   ]),
-  
 };
 
 export default SaveButton;
