@@ -81,102 +81,198 @@ function Launch() {
     }
   };
 
-  return (
-    <>
-      {/* If loading return loading component */}
-      {loading ? (
-        <>
-          <Loading />
-        </>
-      ) : (
-        <>
-          {/* If loaded return page data */}
-          <Container>
-            <svg
-              height="100"
-              stroke="#072448"
-              strokeWidth="1.25"
-              className="text-line L-Title"
-              width="100%"
-            >
-              <text
-                x="50%"
-                dominantBaseline="middle"
-                textAnchor="middle"
-                y="50%"
+  // Prepare token for use in page rendering
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // If user is logged in, return the first page, else return the following page.
+  if (token) {
+    return (
+      <>
+        {/* If loading return loading component */}
+        {loading ? (
+          <>
+            <Loading />
+          </>
+        ) : (
+          <>
+            {/* If loaded return page data */}
+            <Container>
+              <svg
+                height="100"
+                stroke="#072448"
+                strokeWidth="1.25"
+                className="text-line L-Title"
+                width="100%"
               >
-                LAUNCHES
-              </text>
-            </svg>
-            <Row>
-              <Col>
-                {launchData.length > 0 &&
-                  launchData.map((launch) => (
-                    <motion.div
-                      key={launch.id}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Card className="L-Card">
-                        <Container>
-                          <Row>
-                            <Col md={12} lg={4}>
-                              <Card.Img
-                                className="L-Img"
-                                src={launch.image}
-                              ></Card.Img>
-                            </Col>
+                <text
+                  x="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  y="50%"
+                >
+                  LAUNCHES
+                </text>
+              </svg>
+              <Row>
+                <Col>
+                  {launchData.length > 0 &&
+                    launchData.map((launch) => (
+                      <motion.div
+                        key={launch.id}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Card className="L-Card">
+                          <Container>
+                            <Row>
+                              <Col md={12} lg={4}>
+                                <Card.Img
+                                  className="L-Img"
+                                  src={launch.image}
+                                ></Card.Img>
+                              </Col>
 
-                            <Col md={12} lg={8}>
-                              <Row>
-                                <Col>
-                                  <Card.Body>
-                                    <Card.Title className="L-Title">
-                                      {launch.name}
-                                    </Card.Title>
-                                    <Card.Text>
-                                      {launch.launch_service_provider.name}
-                                    </Card.Text>
-                                    <Card.Text>
-                                      {launch.status.abbrev}
-                                    </Card.Text>
-                                    <Card.Text>
-                                      <DateParser
-                                        dateString={launch.window_start}
+                              <Col md={12} lg={8}>
+                                <Row>
+                                  <Col>
+                                    <Card.Body>
+                                      <Card.Title className="L-Title">
+                                        {launch.name}
+                                      </Card.Title>
+                                      <Card.Text>
+                                        {launch.launch_service_provider.name}
+                                      </Card.Text>
+                                      <Card.Text>
+                                        {launch.status.abbrev}
+                                      </Card.Text>
+                                      <Card.Text>
+                                        <DateParser
+                                          dateString={launch.window_start}
+                                        />
+                                      </Card.Text>
+                                      <CountdownTimer
+                                        targetDate={new Date(
+                                          launch.window_start
+                                        ).getTime()}
                                       />
-                                    </Card.Text>
-                                    <CountdownTimer
-                                      targetDate={new Date(
-                                        launch.window_start
-                                      ).getTime()}
-                                    />
-                                    <Row className="L-ButtonContainer">
-                                      <Link to={`/launch/${launch.id}`}>
-                                        <Button value={<InfoIcon />} />
-                                      </Link>
-                                      <SaveButton
-                                        value={<AddIcon />}
-                                        onClick={() =>
-                                          handleSaveLaunch(launch.id)
-                                        }
+                                      <Row className="L-ButtonContainer">
+                                        <Link to={`/launch/${launch.id}`}>
+                                          <Button value={<InfoIcon />} />
+                                        </Link>
+                                        <SaveButton
+                                          value={<AddIcon />}
+                                          onClick={() =>
+                                            handleSaveLaunch(launch.id)
+                                          }
+                                        />
+                                      </Row>
+                                    </Card.Body>
+                                  </Col>
+                                </Row>
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Card>
+                      </motion.div>
+                    ))}
+                </Col>
+              </Row>
+            </Container>
+          </>
+        )}
+      </>
+    );
+  } else {
+    return (
+      <>
+        {/* If loading return loading component */}
+        {loading ? (
+          <>
+            <Loading />
+          </>
+        ) : (
+          <>
+            {/* If loaded return page data */}
+            <Container>
+              <svg
+                height="100"
+                stroke="#072448"
+                strokeWidth="1.25"
+                className="text-line L-Title"
+                width="100%"
+              >
+                <text
+                  x="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  y="50%"
+                >
+                  LAUNCHES
+                </text>
+              </svg>
+              <Row>
+                <Col>
+                  {launchData.length > 0 &&
+                    launchData.map((launch) => (
+                      <motion.div
+                        key={launch.id}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Card className="L-Card">
+                          <Container>
+                            <Row>
+                              <Col md={12} lg={4}>
+                                <Card.Img
+                                  className="L-Img"
+                                  src={launch.image}
+                                ></Card.Img>
+                              </Col>
+
+                              <Col md={12} lg={8}>
+                                <Row>
+                                  <Col>
+                                    <Card.Body>
+                                      <Card.Title className="L-Title">
+                                        {launch.name}
+                                      </Card.Title>
+                                      <Card.Text>
+                                        {launch.launch_service_provider.name}
+                                      </Card.Text>
+                                      <Card.Text>
+                                        {launch.status.abbrev}
+                                      </Card.Text>
+                                      <Card.Text>
+                                        <DateParser
+                                          dateString={launch.window_start}
+                                        />
+                                      </Card.Text>
+                                      <CountdownTimer
+                                        targetDate={new Date(
+                                          launch.window_start
+                                        ).getTime()}
                                       />
-                                    </Row>
-                                  </Card.Body>
-                                </Col>
-                              </Row>
-                            </Col>
-                          </Row>
-                        </Container>
-                      </Card>
-                    </motion.div>
-                  ))}
-              </Col>
-            </Row>
-          </Container>
-        </>
-      )}
-    </>
-  );
+                                      <Row className="L-ButtonContainer">
+                                        <Link to={`/launch/${launch.id}`}>
+                                          <Button value={<InfoIcon />} />
+                                        </Link>
+                                      </Row>
+                                    </Card.Body>
+                                  </Col>
+                                </Row>
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Card>
+                      </motion.div>
+                    ))}
+                </Col>
+              </Row>
+            </Container>
+          </>
+        )}
+      </>
+    );
+  }
 }
 
 // Export page
