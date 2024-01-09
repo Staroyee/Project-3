@@ -182,6 +182,7 @@ function Launch() {
       </>
     );
   } else {
+    // If user is not logged in load this page
     return (
       <>
         {/* If loading return loading component */}

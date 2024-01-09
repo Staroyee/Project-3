@@ -35,6 +35,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// Reset the cache without refetching active queries when a user logs out
 client.clearStore();
 
 function App() {
