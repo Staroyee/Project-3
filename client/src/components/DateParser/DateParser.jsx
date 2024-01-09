@@ -4,30 +4,30 @@ import { PropTypes } from "prop-types";
 const DateParser = ({ dateString }) => {
   const parseAndFormatDate = (dateString) => {
     const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      timeZoneName: 'short',
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      timeZoneName: "short",
     };
 
-    const formattedDate = new Date(dateString).toLocaleString('en-US', options);
+    const formattedDate = new Date(dateString).toLocaleString("en-US", options);
     return formattedDate;
   };
 
   // Return component data
   return (
     <>
-      {parseAndFormatDate(dateString)}
+      <div data-testid="dateParser">{parseAndFormatDate(dateString)}</div>
     </>
   );
 };
 
 // Define props
 DateParser.propTypes = {
-    dateString: PropTypes.string,
-}
+  dateString: PropTypes.string,
+};
 
 // Export component
 export default DateParser;
