@@ -14,3 +14,15 @@
     background-color: #ffd700;
     color: #072448;
   }
+
+@media screen and (max-width: 425px) {
+  .button {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .button {
+    width: 80px;
+  }
+}
