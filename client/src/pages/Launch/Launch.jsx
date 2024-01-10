@@ -115,7 +115,7 @@ function Launch() {
                     launchData.map((launch) => (
                       <motion.div
                         key={launch.id}
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
                         <Card className="L-Card">

@@ -8,7 +8,7 @@ function SaveButton({ value, onClick }) {
       data-testid="btn"
       onClick={onClick}
       className="button"
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
     >
       {value}

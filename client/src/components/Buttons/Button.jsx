@@ -7,7 +7,7 @@ function Button({ value }) {
     <motion.button
       data-testid="btn"
       className="button"
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
     >
       {value}
