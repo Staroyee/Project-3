@@ -39,8 +39,6 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    console.log("User Form Data:", userFormData);
-
     if (
       !userFormData.username ||
       !userFormData.email ||
@@ -57,7 +55,6 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       // If signup is successful, store the user's token in local storage using the Auth utility
-      console.log("Mutation Result:", data);
       Auth.login(data.addProfile.token);
     } catch (err) {
       console.error(err);

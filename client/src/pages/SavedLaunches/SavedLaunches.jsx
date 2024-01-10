@@ -30,7 +30,6 @@ function SavedLaunches() {
         variables: { launchId },
         refetchQueries: [{ query: QUERY_ME }],
       });
-      console.log("Launch removed");
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +41,6 @@ function SavedLaunches() {
   }
 
   const { me } = data;
-  console.log(data);
   // Check if the user is logged in
   if (!Auth.loggedIn()) {
     return <div>You must be logged in to view your saved launches.</div>;

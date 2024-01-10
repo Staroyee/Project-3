@@ -42,7 +42,6 @@ const SingleLaunch = () => {
 
         const agencyResponse = await fetch(agencyUrl);
         const agencyData = await agencyResponse.json();
-        console.log(agencyData);
         setAgencyData(agencyData);
       } catch (error) {
         console.error(error);
@@ -77,8 +76,6 @@ const SingleLaunch = () => {
           },
         },
       });
-
-      console.log("Launch saved");
     } catch (err) {
       console.error(err);
     }

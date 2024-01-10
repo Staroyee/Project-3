@@ -15,7 +15,6 @@ function Navbar() {
 
   useEffect(() => {
     setActiveLink(location.pathname);
-    console.log(location.pathname)
   }, [location.pathname])
 
   // Toggle active for burger menu

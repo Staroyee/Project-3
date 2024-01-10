@@ -56,7 +56,6 @@ const resolvers = {
       if (!username || !email || !password) {
         throw new Error("All fields are required.");
       }
-      console.log('Received values:', username, email, password);
       const profile = await Profile.create({ username, email, password });
       const token = signToken(profile);
 

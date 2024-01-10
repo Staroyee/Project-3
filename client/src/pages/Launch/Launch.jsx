@@ -39,7 +39,6 @@ function Launch() {
     fetch(launchUrl)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response.results);
         setLaunchData(response.results);
         setLoading(false);
       })
@@ -74,8 +73,6 @@ function Launch() {
           },
         },
       });
-
-      console.log("Launch saved");
     } catch (err) {
       console.error(err);
     }
