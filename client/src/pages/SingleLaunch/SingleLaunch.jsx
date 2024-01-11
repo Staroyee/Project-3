@@ -9,7 +9,6 @@ import Loading from "../../components/Loading/Loading.jsx";
 // Import Styling
 import { Container, Row, Col, Card } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
-import Tooltip from "@mui/material/Tooltip";
 import "./SingleLaunch.css";
 // Import queries and mutations
 import { SAVE_LAUNCH } from "../../utils/mutations.js";
@@ -86,127 +85,225 @@ const SingleLaunch = () => {
     return <Loading />;
   }
 
-  // Else return page data
-  return (
-    <>
-      <Container>
-        <Row>
-          <Col>
-            <h1 className="SL-Title">Spacecraft</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Card className="SL-Card">
-            <Container>
-              <Row>
-                <Col md={12} lg={6}>
-                  <Card.Img
-                    className="SL-Img"
-                    src={launchData.image}
-                  ></Card.Img>
-                </Col>
-                <Col md={12} lg={6}>
-                  <Row>
-                    <Col>
-                      <Card.Body>
-                        <Card.Title>{launchData.name}</Card.Title>
-                        <Card.Text>
-                          {launchData.launch_service_provider.name}
-                        </Card.Text>
-                        <Card.Text></Card.Text>
-                        <Card.Text>
-                          STATUS - {launchData.status.abbrev}
-                        </Card.Text>
-                        <Card.Text>
-                          <DateParser dateString={launchData.window_start} />
-                        </Card.Text>
-                        <Card.Text>{launchData.status.description}</Card.Text>
-                        {/* Countdown timer component to display the countdown for each launch */}
-                        <CountdownTimer
-                          targetDate={new Date(
-                            launchData.window_start
-                          ).getTime()}
-                        />
-                        <Row className="SL-ButtonContainer">
-                          <button className="SL-Button">
-                            {launchData.webcast_live ? (
-                              <>WATCH LIVE</>
-                            ) : (
-                              "NO LIVESTREAM"
-                            )}
-                          </button>
-                        </Row>
-                        <Tooltip title="Save" arrow placement="right">
+  // Prepare token for use in page rendering
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // If user is logged in, return the first page, else return the following page.
+  if (token) {
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col>
+              <h1 className="SL-Title">Spacecraft</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Card className="SL-Card">
+              <Container>
+                <Row>
+                  <Col md={12} lg={6}>
+                    <Card.Img
+                      className="SL-Img"
+                      src={launchData.image}
+                    ></Card.Img>
+                  </Col>
+                  <Col md={12} lg={6}>
+                    <Row>
+                      <Col>
+                        <Card.Body>
+                          <Card.Title>{launchData.name}</Card.Title>
+                          <Card.Text>
+                            {launchData.launch_service_provider.name}
+                          </Card.Text>
+                          <Card.Text></Card.Text>
+                          <Card.Text>
+                            STATUS - {launchData.status.abbrev}
+                          </Card.Text>
+                          <Card.Text>
+                            <DateParser dateString={launchData.window_start} />
+                          </Card.Text>
+                          <Card.Text>{launchData.status.description}</Card.Text>
+                          {/* Countdown timer component to display the countdown for each launch */}
+                          <CountdownTimer
+                            targetDate={new Date(
+                              launchData.window_start
+                            ).getTime()}
+                          />
                           <button
                             onClick={() => handleSaveLaunch(launchData.id)}
                             className="SL-Button"
                           >
                             <AddIcon />
                           </button>
-                        </Tooltip>
-                      </Card.Body>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Container>
-          </Card>
-        </Row>
-        <Row>
-          <Col>
-            <h1 className="SL-Title">Organisation</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Card className="SL-Card">
-            <Container>
-              <Row>
-                <Col md={12}>
-                  <Row><Col md={12}>
-                  <a href={agencyData.info_url} target="blank"><Card.Img
-                    className="SL-Img"
-                    src={agencyData.logo_url}
-                  ></Card.Img>
-                  </a>
-                </Col>
-                    <Col>
-                      <Card.Body>
-                        <Card.Title className="SL-CardTitle">
-                          {agencyData.name}
-                        </Card.Title>
-                        <Card.Text>
-                            {agencyData.type}
-                        </Card.Text>
-                        <Card.Text>
-                          Founded - {agencyData.founding_year}
-                        </Card.Text>
-                        <Card.Text>{agencyData.administrator}</Card.Text>
-                        <Card.Text>{agencyData.description}</Card.Text>
-                        <Card.Text>
-                            Successful Landings: {agencyData.successful_landings}
-                        </Card.Text>
-                        <Card.Text>
-                            Successful Launches: {agencyData.successful_launches}
-                        </Card.Text>
-                        <Card.Text>
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </Row>
+          <Row>
+            <Col>
+              <h1 className="SL-Title">Organisation</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Card className="SL-Card">
+              <Container>
+                <Row>
+                  <Col md={12}>
+                    <Row>
+                      <Col md={12}>
+                        <a href={agencyData.info_url} target="blank">
+                          <Card.Img
+                            className="SL-Img"
+                            src={agencyData.logo_url}
+                          ></Card.Img>
+                        </a>
+                      </Col>
+                      <Col>
+                        <Card.Body>
+                          <Card.Title className="SL-CardTitle">
+                            {agencyData.name}
+                          </Card.Title>
+                          <Card.Text>{agencyData.type}</Card.Text>
+                          <Card.Text>
+                            Founded - {agencyData.founding_year}
+                          </Card.Text>
+                          <Card.Text>{agencyData.administrator}</Card.Text>
+                          <Card.Text>{agencyData.description}</Card.Text>
+                          <Card.Text>
+                            Successful Landings:{" "}
+                            {agencyData.successful_landings}
+                          </Card.Text>
+                          <Card.Text>
+                            Successful Launches:{" "}
+                            {agencyData.successful_launches}
+                          </Card.Text>
+                          <Card.Text>
                             Failed Landings: {agencyData.failed_landings}
-                        </Card.Text>
-                        <Card.Text>
+                          </Card.Text>
+                          <Card.Text>
                             Failed Launches:{agencyData.failed_launches}
-                        </Card.Text>
-                      </Card.Body>
-                    </Col>
-                  </Row>
-                </Col>
-                
-              </Row>
-            </Container>
-          </Card>
-        </Row>
-      </Container>
-    </>
-  );
+                          </Card.Text>
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </Row>
+        </Container>
+      </>
+    );
+  } else {
+    // If user is not logged in load this page
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col>
+              <h1 className="SL-Title">Spacecraft</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Card className="SL-Card">
+              <Container>
+                <Row>
+                  <Col md={12} lg={6}>
+                    <Card.Img
+                      className="SL-Img"
+                      src={launchData.image}
+                    ></Card.Img>
+                  </Col>
+                  <Col md={12} lg={6}>
+                    <Row>
+                      <Col>
+                        <Card.Body>
+                          <Card.Title>{launchData.name}</Card.Title>
+                          <Card.Text>
+                            {launchData.launch_service_provider.name}
+                          </Card.Text>
+                          <Card.Text></Card.Text>
+                          <Card.Text>
+                            STATUS - {launchData.status.abbrev}
+                          </Card.Text>
+                          <Card.Text>
+                            <DateParser dateString={launchData.window_start} />
+                          </Card.Text>
+                          <Card.Text>{launchData.status.description}</Card.Text>
+                          {/* Countdown timer component to display the countdown for each launch */}
+                          <CountdownTimer
+                            targetDate={new Date(
+                              launchData.window_start
+                            ).getTime()}
+                          />
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </Row>
+          <Row>
+            <Col>
+              <h1 className="SL-Title">Organisation</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Card className="SL-Card">
+              <Container>
+                <Row>
+                  <Col md={12}>
+                    <Row>
+                      <Col md={12}>
+                        <a href={agencyData.info_url} target="blank">
+                          <Card.Img
+                            className="SL-Img"
+                            src={agencyData.logo_url}
+                          ></Card.Img>
+                        </a>
+                      </Col>
+                      <Col>
+                        <Card.Body>
+                          <Card.Title className="SL-CardTitle">
+                            {agencyData.name}
+                          </Card.Title>
+                          <Card.Text>{agencyData.type}</Card.Text>
+                          <Card.Text>
+                            Founded - {agencyData.founding_year}
+                          </Card.Text>
+                          <Card.Text>{agencyData.administrator}</Card.Text>
+                          <Card.Text>{agencyData.description}</Card.Text>
+                          <Card.Text>
+                            Successful Landings:{" "}
+                            {agencyData.successful_landings}
+                          </Card.Text>
+                          <Card.Text>
+                            Successful Launches:{" "}
+                            {agencyData.successful_launches}
+                          </Card.Text>
+                          <Card.Text>
+                            Failed Landings: {agencyData.failed_landings}
+                          </Card.Text>
+                          <Card.Text>
+                            Failed Launches:{agencyData.failed_launches}
+                          </Card.Text>
+                        </Card.Body>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+            </Card>
+          </Row>
+        </Container>
+      </>
+    );
+  }
 };
-
 // Export page
 export default SingleLaunch;
