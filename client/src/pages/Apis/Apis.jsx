@@ -8,7 +8,22 @@ function Apis() {
     <>
       <Container>
         <Card className="A-Card">
-          <h1 className="A-Title">API Usage</h1>
+          <svg
+                height="100"
+                stroke="#072448"
+                strokeWidth="1.25"
+                className="text-line L-Title"
+                width="100%"
+              >
+                <text
+                  x="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  y="50%"
+                >
+                  API USAGE
+                </text>
+              </svg>
           <Card.Text>
               For this project, we made use of the amazing Launch Library 2 & NASA Open APIs. They provide the wealth of information and images that fill the community we have built, and we thank them for making the information open, free, and easily accessible.
               </Card.Text>
