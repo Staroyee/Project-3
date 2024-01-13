@@ -1,5 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Apis.css"
+import Button from "../../components/Buttons/Button";
 
 // Render the page to display the information about API usage
 function Apis() {
@@ -23,7 +24,7 @@ function Apis() {
             rel="noreferrer"
             target="_blank"
           >
-            <button className="A-Button">View Docs</button>
+            <Button value="View Docs" className="A-Button">View Docs</Button>
           </a>
           <h2 className="A-CardTitle">NASA Open APIs</h2>
               <Card.Text>
@@ -35,7 +36,7 @@ function Apis() {
             rel="noreferrer"
             target="_blank"
           >
-            <button className="A-Button">View Docs</button>
+            <Button value="View Docs" className="A-Button">View Docs</Button>
           </a>
             </Col>
           </Row>

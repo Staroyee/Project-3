@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { loadStripe } from "@stripe/stripe-js";
 import PropTypes from "prop-types";
 
@@ -34,9 +35,15 @@ const DonationButton = ({ itemID, amount }) => {
   return (
     <>
       {" "}
-      <button data-testid="btn" className="D-Button" onClick={handleClick}>
+      <motion.button
+        data-testid="btn"
+        className="D-Button"
+        onClick={handleClick}
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 200, damping: 15 }}
+      >
         Donate {amount}$
-      </button>
+      </motion.button>
     </>
   );
 };
