@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth.js";
 // Import Components
+import SaveButton from "../../components/Buttons/SaveButton.jsx";
 import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
@@ -51,8 +52,7 @@ const SingleLaunch = () => {
   }, [launchId]);
 
   // Handle the saving of a launch to the users profile
-  const handleSaveLaunch = async (launchId) => {
-    const launchToSave = launchData.find((launch) => launch.id === launchId);
+  const handleSaveLaunch = async () => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     // If not logged in return false
@@ -64,14 +64,14 @@ const SingleLaunch = () => {
       await saveLaunch({
         variables: {
           launch: {
-            launchId: launchToSave.id,
-            name: launchToSave.name,
-            status: launchToSave.status.abbrev,
-            provider: launchToSave.launch_service_provider.name,
-            location: launchToSave.location,
-            date: launchToSave.window_start,
-            image: launchToSave.image,
-            webcastLive: launchToSave.webcast_live ? "true" : "false",
+            launchId: launchData.id,
+            name: launchData.name,
+            status: launchData.status.abbrev,
+            provider: launchData.launch_service_provider.name,
+            location: launchData.location,
+            date: launchData.window_start,
+            image: launchData.image,
+            webcastLive: launchData.webcast_live ? "true" : "false",
           },
         },
       });
@@ -119,9 +119,7 @@ const SingleLaunch = () => {
                           <Card.Text>
                             STATUS - {launchData.status.abbrev}
                           </Card.Text>
-                          <Card.Text>
-                            <DateParser dateString={launchData.window_start} />
-                          </Card.Text>
+                          <DateParser dateString={launchData.window_start} />
                           <Card.Text>{launchData.status.description}</Card.Text>
                           {/* Countdown timer component to display the countdown for each launch */}
                           <CountdownTimer
@@ -129,12 +127,10 @@ const SingleLaunch = () => {
                               launchData.window_start
                             ).getTime()}
                           />
-                          <button
+                          <SaveButton
+                            value={<AddIcon />}
                             onClick={() => handleSaveLaunch(launchData.id)}
-                            className="SL-Button"
-                          >
-                            <AddIcon />
-                          </button>
+                          />
                         </Card.Body>
                       </Col>
                     </Row>
@@ -230,9 +226,7 @@ const SingleLaunch = () => {
                           <Card.Text>
                             STATUS - {launchData.status.abbrev}
                           </Card.Text>
-                          <Card.Text>
-                            <DateParser dateString={launchData.window_start} />
-                          </Card.Text>
+                          <DateParser dateString={launchData.window_start} />
                           <Card.Text>{launchData.status.description}</Card.Text>
                           {/* Countdown timer component to display the countdown for each launch */}
                           <CountdownTimer
