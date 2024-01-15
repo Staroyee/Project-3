@@ -5,6 +5,7 @@ import { QUERY_ME } from "../../utils/queries";
 // Import Auth
 import Auth from "../../utils/auth";
 // Import Comonents
+import Button from "../../components/Buttons/Button.jsx"
 import Loading from "../../components/Loading/Loading.jsx";
 // Import Styling
 import { Container, Row, Col } from "react-bootstrap";
@@ -48,7 +49,7 @@ function Profile() {
           </Col>
           <Col md={12} className="P-ButtonContainer">
             <Link to={"/update-profile"}>
-              <button className="P-Button">Edit Details</button>
+              <Button value="Edit Details" />
             </Link>
           </Col>
         </Row>

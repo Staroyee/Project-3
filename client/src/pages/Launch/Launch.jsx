@@ -8,7 +8,7 @@ import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
 import Button from "../../components/Buttons/Button.jsx";
-import SaveButton from "../../components/Buttons/SaveButton.jsx";
+import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
 
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -155,7 +155,7 @@ function Launch() {
                                         <Link to={`/launch/${launch.id}`}>
                                           <Button value={<InfoIcon />} />
                                         </Link>
-                                        <SaveButton
+                                        <FunctionButton
                                           value={<AddIcon />}
                                           onClick={() =>
                                             handleSaveLaunch(launch.id)

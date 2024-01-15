@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import "./Button.css";
 
-function SaveButton({ value, onClick }) {
+function FunctionButton({ value, onClick }) {
   return (
     <motion.button
       data-testid="btn"
@@ -16,7 +16,7 @@ function SaveButton({ value, onClick }) {
   );
 }
 
-SaveButton.propTypes = {
+FunctionButton.propTypes = {
   onClick: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.string, // Allow strings
@@ -24,4 +24,4 @@ SaveButton.propTypes = {
   ]),
 };
 
-export default SaveButton;
+export default FunctionButton;

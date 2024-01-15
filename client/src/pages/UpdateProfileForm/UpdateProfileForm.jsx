@@ -3,9 +3,12 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 // Import Mutations
 import { UPDATE_PROFILE } from "../../utils/mutations";
+// Import Components
+import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
+
 // Import Styling
 import { Container, Row, Col, Form } from "react-bootstrap";
-import "./UpdateProfileForm.css"
+import "./UpdateProfileForm.css";
 
 // Define UpdateProfileForm page
 const UpdateProfileForm = () => {
@@ -64,8 +67,12 @@ const UpdateProfileForm = () => {
             </Form.Group>
             <Col className="UPF-ButtonContainer">
               <Link to={"/profile"}>
-            <button className="UPF-Button" onClick={handleUpdate}>Update Profile</button>
-            </Link>
+                <FunctionButton
+                  value="Update Details"
+                  className="UPF-Button"
+                  onClick={handleUpdate}
+                />
+              </Link>
             </Col>
           </Form>
         </Row>

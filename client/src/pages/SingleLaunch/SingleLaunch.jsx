@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth.js";
 // Import Components
-import SaveButton from "../../components/Buttons/SaveButton.jsx";
+import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
 import CountdownTimer from "../../components/Countdown/Countdown.jsx";
 import DateParser from "../../components/DateParser/DateParser.jsx";
 import Loading from "../../components/Loading/Loading.jsx";
@@ -127,7 +127,7 @@ const SingleLaunch = () => {
                               launchData.window_start
                             ).getTime()}
                           />
-                          <SaveButton
+                          <FunctionButton
                             value={<AddIcon />}
                             onClick={() => handleSaveLaunch(launchData.id)}
                           />
