@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 // Import Mutations
 import { UPDATE_PROFILE } from "../../utils/mutations";
 // Import Components
 import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
-
 // Import Styling
 import { Container, Row, Col, Form } from "react-bootstrap";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./UpdateProfileForm.css";
+import BackButton from "../../components/Buttons/BackButton.jsx";
 
 // Define UpdateProfileForm page
 const UpdateProfileForm = () => {
@@ -30,12 +32,16 @@ const UpdateProfileForm = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   // Return page data
   return (
     <>
       <Container className="UPF-Container">
         <Row>
           <Col>
+            {/* <ArrowBackIcon onClick={() => navigate(-1)} className="UPF-ArrowIcon" /> */}
+            <BackButton onClick={() => navigate(-1)} />
             <h1 className="UPF-Title">Edit Details</h1>
           </Col>
         </Row>

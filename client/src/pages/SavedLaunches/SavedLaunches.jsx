@@ -14,7 +14,7 @@ import { QUERY_ME } from "../../utils/queries";
 import { REMOVE_LAUNCH } from "../../utils/mutations";
 // Import Auth
 import Auth from "../../utils/auth";
-import SaveButton from "../../components/Buttons/SaveButton.jsx";
+import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
 
 // Define SavedLaunches page
 function SavedLaunches() {
@@ -103,14 +103,14 @@ function SavedLaunches() {
                             targetDate={new Date(launch.date).getTime()}
                           />
                           <Tooltip title="Remove" arrow placement="right">
-                            <SaveButton
+                            <FunctionButton
                               value={<ClearIcon />}
                               onClick={() =>
                                 handleRemoveLaunch(launch.launchId)
                               }
                             >
                               <ClearIcon />
-                            </SaveButton>
+                            </FunctionButton>
                           </Tooltip>
                         </Card.Body>
                       </Col>
