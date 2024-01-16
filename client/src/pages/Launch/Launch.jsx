@@ -36,7 +36,12 @@ function Launch() {
   // Fetch Launch data using API url
   const getLaunchData = () => {
     let launchUrl = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/";
-    fetch(launchUrl)
+    const apiKey = '9641f9486780890c5232dc956eb42f4930dbf439';
+    fetch(launchUrl, {
+      headers: {
+        'Authorization': `apikey ${apiKey}`,
+      },
+    })
       .then((res) => res.json())
       .then((response) => {
         setLaunchData(response.results);
@@ -115,7 +120,7 @@ function Launch() {
                     launchData.map((launch) => (
                       <motion.div
                         key={launch.id}
-                        whileHover={{ scale: 1.03 }}
+                        whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                       >
                         <Card className="L-Card">
@@ -213,7 +218,7 @@ function Launch() {
                     launchData.map((launch) => (
                       <motion.div
                         key={launch.id}
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                       >
                         <Card className="L-Card">

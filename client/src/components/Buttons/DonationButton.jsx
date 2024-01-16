@@ -13,24 +13,24 @@ const DonationButton = ({ itemID, amount }) => {
     // Await Stripe response
     const stripe = await stripePromise;
     // Redirect to Stripe page checkout when user is on the set window location only.
-    const stripeCheckoutSession = await stripe.redirectToCheckout({
-      lineItems: [{ price: itemID, quantity: 1 }],
-      mode: "payment",
-      successUrl:
-        window.location.protocol +
-        "//skyward-project-57c549ccb969.herokuapp.com/donate",
-      cancelUrl:
-        window.location.protocol +
-        "//skyward-project-57c549ccb969.herokuapp.com/donate",
-      submitType: "donate",
-    });
-
-    // Open the Stripe checkout session in a new tab
-    if (stripeCheckoutSession && stripeCheckoutSession.url) {
-      window.open(stripeCheckoutSession.url, "_blank");
-    }
+    stripe
+      .redirectToCheckout({
+        lineItems: [{ price: itemID, quantity: 1 }],
+        mode: "payment",
+        successUrl:
+          window.location.protocol +
+          "//skyward-project-57c549ccb969.herokuapp.com/donate",
+        cancelUrl:
+          window.location.protocol +
+          "//skyward-project-57c549ccb969.herokuapp.com/donate",
+        submitType: "donate",
+      })
+      .then(function (result) {
+        if (result.error) {
+          console.log(result);
+        }
+      });
   };
-
   // Return component data
   return (
     <>

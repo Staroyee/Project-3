@@ -41,20 +41,32 @@ a {
   font-style: normal;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .text-line text {
     font-size: 80px;
   }
 }
 
+@media screen and (max-width: 768px) {
+  .text-line text {
+    font-size: 61px;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .text-line text {
-    font-size: 60px;
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .text-line text {
+    font-size: 45px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .text-line text {
-    font-size: 40px;
+    font-size: 33px;
   }
 }

@@ -31,10 +31,14 @@ const SingleLaunch = () => {
   // Use effect to fetch the data from the launch and agency API urls
   useEffect(() => {
     const fetchLaunchDetails = async () => {
+      const launchUrl = `https://lldev.thespacedevs.com/2.2.0/launch/${launchId}/`;
+      const {apiKey} = "9641f9486780890c5232dc956eb42f4930dbf439";
       try {
-        const response = await fetch(
-          `https://lldev.thespacedevs.com/2.2.0/launch/${launchId}/`
-        );
+        const response = await fetch(launchUrl, {
+          headers: {
+            Authorization: `apikey ${apiKey}`,
+          },
+        });
         const data = await response.json();
         setLaunchData(data);
 
@@ -97,6 +101,7 @@ const SingleLaunch = () => {
               <h1 className="SL-Title">Spacecraft</h1>
             </Col>
           </Row>
+
           <Row>
             <Card className="SL-Card">
               <Container>
@@ -107,43 +112,38 @@ const SingleLaunch = () => {
                       src={launchData.image}
                     ></Card.Img>
                   </Col>
+
                   <Col md={12} lg={6}>
-                    <Row>
-                      <Col>
-                        <Card.Body>
-                          <Card.Title>{launchData.name}</Card.Title>
-                          <Card.Text>
-                            {launchData.launch_service_provider.name}
-                          </Card.Text>
-                          <Card.Text></Card.Text>
-                          <Card.Text>
-                            STATUS - {launchData.status.abbrev}
-                          </Card.Text>
-                          <DateParser dateString={launchData.window_start} />
-                          <Card.Text>{launchData.status.description}</Card.Text>
-                          {/* Countdown timer component to display the countdown for each launch */}
-                          <CountdownTimer
-                            targetDate={new Date(
-                              launchData.window_start
-                            ).getTime()}
-                          />
-                          <FunctionButton
-                            value={<AddIcon />}
-                            onClick={() => handleSaveLaunch(launchData.id)}
-                          />
-                        </Card.Body>
-                      </Col>
-                    </Row>
+                    <Card.Body>
+                      <Card.Title>{launchData.name}</Card.Title>
+                      <Card.Text>
+                        {launchData.launch_service_provider.name}
+                      </Card.Text>
+                      <Card.Text></Card.Text>
+                      <Card.Text>STATUS - {launchData.status.abbrev}</Card.Text>
+                      <DateParser dateString={launchData.window_start} />
+                      <Card.Text>{launchData.status.description}</Card.Text>
+                      {/* Countdown timer component to display the countdown for each launch */}
+                      <CountdownTimer
+                        targetDate={new Date(launchData.window_start).getTime()}
+                      />
+                      <FunctionButton
+                        value={<AddIcon />}
+                        onClick={() => handleSaveLaunch(launchData.id)}
+                      />
+                    </Card.Body>
                   </Col>
                 </Row>
               </Container>
             </Card>
           </Row>
+
           <Row>
             <Col>
               <h1 className="SL-Title">Organisation</h1>
             </Col>
           </Row>
+
           <Row>
             <Card className="SL-Card">
               <Container>
@@ -158,6 +158,7 @@ const SingleLaunch = () => {
                           ></Card.Img>
                         </a>
                       </Col>
+
                       <Col>
                         <Card.Body>
                           <Card.Title className="SL-CardTitle">
@@ -201,9 +202,25 @@ const SingleLaunch = () => {
         <Container>
           <Row>
             <Col>
-              <h1 className="SL-Title">Spacecraft</h1>
+            <svg
+                height="100"
+                stroke="#072448"
+                strokeWidth="1.25"
+                className="text-line SL-Title"
+                width="100%"
+              >
+                <text
+                  x="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  y="50%"
+                >
+                  SPACECRAFT
+                </text>
+              </svg>
             </Col>
           </Row>
+
           <Row>
             <Card className="SL-Card">
               <Container>
@@ -214,6 +231,7 @@ const SingleLaunch = () => {
                       src={launchData.image}
                     ></Card.Img>
                   </Col>
+
                   <Col md={12} lg={6}>
                     <Row>
                       <Col>
@@ -242,11 +260,28 @@ const SingleLaunch = () => {
               </Container>
             </Card>
           </Row>
+
           <Row>
             <Col>
-              <h1 className="SL-Title">Organisation</h1>
+            <svg
+                height="100"
+                stroke="#072448"
+                strokeWidth="1.25"
+                className="text-line SL-Title"
+                width="100%"
+              >
+                <text
+                  x="50%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  y="50%"
+                >
+                  ORGANISATION
+                </text>
+              </svg>
             </Col>
           </Row>
+
           <Row>
             <Card className="SL-Card">
               <Container>
@@ -261,6 +296,7 @@ const SingleLaunch = () => {
                           ></Card.Img>
                         </a>
                       </Col>
+
                       <Col>
                         <Card.Body>
                           <Card.Title className="SL-CardTitle">

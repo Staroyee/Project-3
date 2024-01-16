@@ -9,13 +9,23 @@ function Donate() {
     <>
       <Container>
         <Card className="D-Card">
-          <h1 className="D-Title">Donations</h1>
+          <svg
+            height="100"
+            stroke="#072448"
+            strokeWidth="1.25"
+            className="text-line"
+            width="100%"
+          >
+            <text x="50%" dominantBaseline="middle" textAnchor="middle" y="50%">
+              DONATIONS
+            </text>
+          </svg>
           <Row>
             <Col>
               <Card.Text>
                 🤠 Howdy! Thank you for being a part of our community. We work
                 hard to bring you some of our favourite space themed information
-                and data, provided from by APIs from NASA and Launch Library 2.
+                and data, provided by APIs from NASA and Launch Library 2.
               </Card.Text>
               <Card.Text>
                 By donating to support our project, you allow us to continue
