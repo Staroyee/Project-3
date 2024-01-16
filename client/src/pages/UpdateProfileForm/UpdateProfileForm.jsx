@@ -8,7 +8,6 @@ import { UPDATE_PROFILE } from "../../utils/mutations";
 import FunctionButton from "../../components/Buttons/FunctionButton.jsx";
 // Import Styling
 import { Container, Row, Col, Form } from "react-bootstrap";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./UpdateProfileForm.css";
 import BackButton from "../../components/Buttons/BackButton.jsx";
 
@@ -23,6 +22,7 @@ const UpdateProfileForm = () => {
 
   // Function to handle the updating of a users profile
   const handleUpdate = async () => {
+    
     try {
       await updateProfile({
         variables: { username, email, password },
