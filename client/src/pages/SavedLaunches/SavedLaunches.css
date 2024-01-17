@@ -51,6 +51,7 @@
 }
 
 .SVL-text-line {
+  margin-top: 50px;
   stroke-dasharray: 550;
   stroke-dashoffset: 500;
   animation: dash 3s linear forwards, filling 3s ease-in forwards;

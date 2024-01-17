@@ -68,7 +68,17 @@ function SavedLaunches() {
       <Container>
         <Row>
           <Col>
-            <h1 className="SVL-Title">Your Launches</h1>
+          <svg
+          height="100"
+          stroke="#072448"
+          strokeWidth="1.25"
+          className="SVL-text-line"
+          width="100%"
+        >
+          <text x="50%" dominantBaseline="middle" textAnchor="middle" y="50%">
+            YOUR LAUNCHES
+          </text>
+        </svg>
           </Col>
         </Row>
         <Row>
