@@ -16,19 +16,47 @@ const UpdateProfileForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // Use mutation to update a users profile details
+  // Use mutation to update a user's profile details
   const [updateProfile] = useMutation(UPDATE_PROFILE);
 
-  // Function to handle the updating of a users profile
-  const handleUpdate = async () => {
-    
+  // Function to handle the updating of a user's profile
+  const handleUpdate = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    // Validate fields
+    if (!username || !email || !password) {
+      setErrorMessage("* All fields are required");
+      return;
+    }
+
+    // Validate email using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("* Invalid email format");
+      return;
+    }
+
+    // Validate password length
+    if (password.length < 7) {
+      setErrorMessage("* Password must be at least 7 characters long");
+      return;
+    }
+
+    // Clear any previous error messages
+    setErrorMessage("");
+
+    // Proceed with the update
     try {
-      await updateProfile({
+      updateProfile({
         variables: { username, email, password },
       });
+      // Optionally, you can navigate after the update is successful
+      navigate("/profile");
     } catch (error) {
       console.error("Update failed:", error.message);
+      setErrorMessage("* Update failed. Please try again.");
     }
   };
 
@@ -40,7 +68,6 @@ const UpdateProfileForm = () => {
       <Container className="UPF-Container">
         <Row>
           <Col>
-            {/* <ArrowBackIcon onClick={() => navigate(-1)} className="UPF-ArrowIcon" /> */}
             <BackButton onClick={() => navigate(-1)} />
             <h1 className="UPF-Title">Edit Details</h1>
           </Col>
@@ -80,6 +107,13 @@ const UpdateProfileForm = () => {
                 />
               </Link>
             </Col>
+            {errorMessage && (
+              <Row className="UPF-ErrorMessage">
+                <Col>
+                  <p>{errorMessage}</p>
+                </Col>
+              </Row>
+            )}
           </Form>
         </Row>
       </Container>
