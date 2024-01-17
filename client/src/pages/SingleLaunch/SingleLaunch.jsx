@@ -32,7 +32,7 @@ const SingleLaunch = () => {
   useEffect(() => {
     const fetchLaunchDetails = async () => {
       const launchUrl = `https://lldev.thespacedevs.com/2.2.0/launch/${launchId}/`;
-      const {apiKey} = "9641f9486780890c5232dc956eb42f4930dbf439";
+      const { apiKey } = "9641f9486780890c5232dc956eb42f4930dbf439";
       try {
         const response = await fetch(launchUrl, {
           headers: {
@@ -202,7 +202,7 @@ const SingleLaunch = () => {
         <Container>
           <Row>
             <Col>
-            <svg
+              <svg
                 height="100"
                 stroke="#072448"
                 strokeWidth="1.25"
@@ -263,7 +263,7 @@ const SingleLaunch = () => {
 
           <Row>
             <Col>
-            <svg
+              <svg
                 height="100"
                 stroke="#072448"
                 strokeWidth="1.25"

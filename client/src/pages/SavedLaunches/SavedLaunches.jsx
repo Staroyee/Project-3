@@ -68,17 +68,22 @@ function SavedLaunches() {
       <Container>
         <Row>
           <Col>
-          <svg
-          height="100"
-          stroke="#072448"
-          strokeWidth="1.25"
-          className="SVL-text-line"
-          width="100%"
-        >
-          <text x="50%" dominantBaseline="middle" textAnchor="middle" y="50%">
-            YOUR LAUNCHES
-          </text>
-        </svg>
+            <svg
+              height="100"
+              stroke="#072448"
+              strokeWidth="1.25"
+              className="SVL-text-line"
+              width="100%"
+            >
+              <text
+                x="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                y="50%"
+              >
+                YOUR LAUNCHES
+              </text>
+            </svg>
           </Col>
         </Row>
         <Row>
@@ -106,9 +111,10 @@ function SavedLaunches() {
                           </Card.Title>
                           <Card.Text>{launch.provider}</Card.Text>
                           <Card.Text>{launch.status}</Card.Text>
-                          <Card.Text>
-                            <DateParser dateString={launch.date} />
-                          </Card.Text>
+                          <DateParser
+                            className="SVL-DateParser"
+                            dateString={launch.date}
+                          />
                           <CountdownTimer
                             targetDate={new Date(launch.date).getTime()}
                           />

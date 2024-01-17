@@ -36,10 +36,10 @@ function Launch() {
   // Fetch Launch data using API url
   const getLaunchData = () => {
     let launchUrl = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/";
-    const apiKey = '9641f9486780890c5232dc956eb42f4930dbf439';
+    const apiKey = "9641f9486780890c5232dc956eb42f4930dbf439";
     fetch(launchUrl, {
       headers: {
-        'Authorization': `apikey ${apiKey}`,
+        Authorization: `apikey ${apiKey}`,
       },
     })
       .then((res) => res.json())
@@ -146,11 +146,10 @@ function Launch() {
                                       <Card.Text>
                                         {launch.status.abbrev}
                                       </Card.Text>
-                                      <Card.Text>
-                                        <DateParser
-                                          dateString={launch.window_start}
-                                        />
-                                      </Card.Text>
+                                      <DateParser
+                                        className="L-DateParser"
+                                        dateString={launch.window_start}
+                                      />
                                       <CountdownTimer
                                         targetDate={new Date(
                                           launch.window_start
@@ -244,11 +243,10 @@ function Launch() {
                                       <Card.Text>
                                         {launch.status.abbrev}
                                       </Card.Text>
-                                      <Card.Text>
-                                        <DateParser
-                                          dateString={launch.window_start}
-                                        />
-                                      </Card.Text>
+                                      <DateParser
+                                        className="L-DateParser"
+                                        dateString={launch.window_start}
+                                      />
                                       <CountdownTimer
                                         targetDate={new Date(
                                           launch.window_start
